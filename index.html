@@ -155,6 +155,49 @@
       }
     }
 
+    /* Animação pulsante do botão CTA verde */
+    @keyframes pulseGreenBtn {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35), 0 0 0 0 rgba(34, 197, 94, 0.5);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 16px 38px rgba(22, 163, 74, 0.55), 0 0 0 10px rgba(34, 197, 94, 0);
+      }
+    }
+    @keyframes rippleGreen {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
+      70% { box-shadow: 0 0 0 18px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* Animação do risco no preço antigo */
+    @keyframes strikeIn {
+      0% { width: 0; opacity: 0; }
+      30% { opacity: 1; }
+      100% { width: 100%; opacity: 1; }
+    }
+    .price-old-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .price-old-wrap .strike-line {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 2.5px;
+      background: #dc2626;
+      border-radius: 2px;
+      width: 0;
+      transform: translateY(-50%);
+      animation: strikeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .price-old-wrap.re-striking .strike-line {
+      animation: none;
+      width: 0;
+    }
+
     /* Destaques Tipográficos */
     .gold-highlight {
       color: var(--gold-dark);
@@ -208,21 +251,24 @@
     }
 
     .b1-logo-box {
-      background: rgba(13, 34, 66, 0.8);
-      border: 1px solid rgba(205, 163, 53, 0.5);
-      border-radius: var(--radius-md);
-      padding: 14px 28px;
+      background: rgba(13, 34, 66, 0.85);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: 16px 36px;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      margin-bottom: 30px;
-      min-width: 180px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(205, 163, 53, 0.25);
+      margin-bottom: 35px;
+      max-width: 90%;
     }
     .b1-logo-box img {
-      max-height: 48px;
+      max-height: 85px;
+      width: auto;
+      max-width: 340px;
       object-fit: contain;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
     }
     .b1-logo-placeholder {
       font-size: 0.88rem;
@@ -233,13 +279,57 @@
       gap: 4px;
     }
 
+    .b1-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(205, 163, 53, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .b1-header-content {
+      max-width: 880px;
+      margin: 0 auto 35px auto;
+    }
+
+    .b1-main-title {
+      font-size: clamp(1.9rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .b1-main-title strong {
+      color: var(--gold-light);
+      font-weight: 800;
+    }
+
+    .b1-subtitle {
+      font-size: clamp(1.05rem, 1.8vw, 1.22rem);
+      font-weight: 400;
+      color: #cbd5e1;
+      line-height: 1.55;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
     .b1-headline {
       font-size: clamp(1.65rem, 3.3vw, 2.35rem);
       font-weight: 700;
       color: #f1f5f9;
       line-height: 1.35;
       max-width: 860px;
-      margin: 0 auto 45px auto;
+      margin: 0 auto 40px auto;
     }
     .b1-headline strong {
       color: var(--gold-light);
@@ -247,19 +337,19 @@
     }
 
     .b1-image-container {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto 30px auto;
       border-radius: var(--radius-xl);
       overflow: hidden;
       border: 2px solid rgba(205, 163, 53, 0.45);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(205, 163, 53, 0.2);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(205, 163, 53, 0.25);
       background: #040c19;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     }
     .b1-image-container:hover {
       transform: translateY(-4px);
       border-color: var(--gold-light);
-      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.65), 0 0 40px rgba(205, 163, 53, 0.35);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 45px rgba(205, 163, 53, 0.4);
     }
     .b1-image-container img {
       width: 100%;
@@ -269,228 +359,153 @@
     }
 
     /* ========================================================
-       BLOCO 2 - DEPOIMENTOS (BRANCO)
-       ======================================================== */
-    .section-block-2 {
-      padding: 80px 0 95px 0;
-      text-align: center;
-    }
-
-    .b2-headline {
-      font-size: clamp(1.45rem, 2.8vw, 1.95rem);
-      font-weight: 700;
-      color: var(--navy-text);
-      max-width: 820px;
-      margin: 0 auto 50px auto;
-      line-height: 1.4;
-    }
-    .b2-headline strong {
-      color: var(--gold-dark);
-      font-weight: 800;
-    }
-
-    .b2-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .b2-testimonial-card {
-      display: flex;
-      flex-direction: column;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(7, 21, 43, 0.06);
-      transition: all 0.35s ease;
-      background: #ffffff;
-      border: 1px solid rgba(205, 163, 53, 0.35);
-    }
-    .b2-testimonial-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover-gold);
-      border-color: var(--gold-primary);
-    }
-
-    .b2-tab-header {
-      background: #f8fafc;
-      padding: 16px 20px;
-      border-bottom: 2px solid var(--gold-primary);
-      text-align: center;
-    }
-    .b2-tab-title {
-      color: var(--navy-text);
-      font-weight: 800;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .b2-tab-title i {
-      color: var(--gold-primary);
-    }
-
-    .b2-body-print {
-      background: #f8fafc;
-      min-height: 240px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 20px;
-      border: 2px dashed rgba(205, 163, 53, 0.55);
-      margin: 12px;
-      border-radius: var(--radius-sm);
-    }
-    .b2-body-print i {
-      font-size: 28px;
-      color: var(--gold-dark);
-      margin-bottom: 12px;
-    }
-    .b2-body-print .print-label {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy-text);
-    }
-    .b2-body-print .print-desc {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin-top: 6px;
-    }
-
-    /* ========================================================
-       BLOCO 3 - RUMINAÇÃO (AZUL MARINHO)
+       BLOCO 3 - RUMINAÇÃO (BRANCO)
        ======================================================== */
     .section-block-3 {
       padding: 85px 0 100px 0;
       text-align: center;
     }
 
-    .b3-top-text {
-      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
-      font-weight: 600;
-      color: #cbd5e1;
-      max-width: 780px;
-      margin: 0 auto 18px auto;
-      line-height: 1.45;
-    }
-    .b3-sub-text {
+    .b3-pre-title {
       font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 45px;
-    }
-
-    .b3-rumination-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      max-width: 880px;
-      margin: 0 auto 50px auto;
-    }
-
-    .b3-column-side {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .b3-rumination-card {
-      background: linear-gradient(135deg, #0d2242 0%, #06152d 100%);
-      border: 1px solid var(--gold-primary);
-      color: #ffffff;
-      padding: 18px 20px;
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 80px;
-      text-align: center;
-    }
-    .b3-rumination-card:hover {
-      transform: scale(1.04);
-      border-color: var(--gold-light);
-      box-shadow: 0 12px 30px rgba(205, 163, 53, 0.3);
-    }
-
-    .b3-persona-box {
-      background: linear-gradient(145deg, #0a1f3c 0%, #051022 100%);
-      border: 2px dashed rgba(205, 163, 53, 0.7);
-      border-radius: var(--radius-lg);
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      transition: all 0.35s ease;
-    }
-    .b3-persona-box:hover {
-      border-color: var(--gold-light);
-      transform: translateY(-4px);
-    }
-    .b3-persona-box i {
-      font-size: 38px;
-      color: var(--gold-light);
-      margin-bottom: 14px;
-    }
-    .b3-persona-box .persona-label {
-      font-size: 1.05rem;
       font-weight: 800;
-      color: #ffffff;
-      max-width: 90%;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
     }
-    .b3-persona-box .persona-sub {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-      margin-top: 8px;
+
+    .b3-headline {
+      font-size: clamp(1.55rem, 3.1vw, 2.25rem);
+      font-weight: 800;
+      color: var(--navy-text);
+      max-width: 840px;
+      margin: 0 auto 20px auto;
+      line-height: 1.35;
+    }
+    .b3-danger-word {
+      color: #dc2626;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .b3-sub-text {
+      font-size: 1.1rem;
+      color: #475569;
+      max-width: 760px;
+      margin: 0 auto 35px auto;
+      line-height: 1.5;
+    }
+
+    /* Container visual: foto integrada diretamente ao fundo branco + os 4 blocos em destaque */
+    .b3-visual-wrap {
+      position: relative;
+      max-width: 1120px;
+      margin: 15px auto 45px auto;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .b3-visual-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.2fr) minmax(260px, 1fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .b3-doubt-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 34px;
+      min-height: 100%;
+      padding: 24px 0;
+    }
+
+    .b3-image-backdrop {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+    }
+    .b3-image-backdrop img {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      max-height: 620px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    .b3-image-overlay {
+      display: none;
+    }
+
+    .b3-cards-overlay {
+      display: contents;
+      background: transparent;
+      z-index: 2;
+    }
+
+    .b3-doubt-card {
+      background: linear-gradient(135deg, #091a35 0%, #040c1a 100%);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 16px 22px;
+      text-align: left;
+      box-shadow: 0 8px 22px rgba(7, 21, 43, 0.16), 0 0 15px rgba(205, 163, 53, 0.12);
+      transition: all 0.3s ease;
+    }
+    .b3-doubt-card:hover {
+      transform: translateX(6px);
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 28px rgba(7, 21, 43, 0.25), 0 0 20px rgba(205, 163, 53, 0.25);
+    }
+    .b3-doubt-card .doubt-text {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.45;
     }
 
     .b3-bottom-statements {
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto 35px auto;
     }
-    .b3-lead-in {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
     .b3-pain-statement {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-    }
-    .b3-question-tag {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .b3-worse-statement {
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.6;
     }
 
+    /* Caixa de Alerta Vermelha "Estou certo?" */
     .b3-alert-box {
-      background: linear-gradient(135deg, #0d2242 0%, #050f1f 100%);
+      background: linear-gradient(135deg, #881313 0%, #580c0c 100%);
       border: 2px solid var(--gold-primary);
       border-radius: var(--radius-lg);
-      padding: 28px 34px;
-      max-width: 680px;
+      padding: 26px 34px;
+      max-width: 760px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       text-align: left;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(205, 163, 53, 0.25);
+      box-shadow: 0 14px 35px rgba(185, 28, 28, 0.35), 0 0 25px rgba(205, 163, 53, 0.25);
     }
     .b3-alert-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(205, 163, 53, 0.15);
-      border: 2px solid var(--gold-primary);
+      width: 62px;
+      height: 62px;
+      background: rgba(205, 163, 53, 0.2);
+      border: 2px solid var(--gold-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -502,112 +517,99 @@
     .b3-alert-content h3 {
       font-size: 1.35rem;
       font-weight: 800;
-      color: var(--gold-light);
+      color: #ffffff;
       margin-bottom: 6px;
     }
     .b3-alert-content p {
-      font-size: 0.98rem;
+      font-size: 1rem;
+      color: #fecaca;
+      line-height: 1.55;
+    }
+    .gold-alert-tag {
+      color: var(--gold-light);
+      font-weight: 800;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ========================================================
+       BLOCO 4 - O QUE VOCÊ VAI RECEBER / CARTILHA (AZUL MARINHO)
+       ======================================================== */
+    .section-block-4 {
+      padding: 90px 0 100px 0;
+      text-align: center;
+    }
+
+    .b4-badge-banner {
+      display: inline-block;
+      background: linear-gradient(135deg, #0d3880 0%, #0a2552 100%);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 50px;
+      padding: 16px 36px;
+      color: #ffffff;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(205, 163, 53, 0.25);
+      margin-bottom: 50px;
+      max-width: 90%;
+    }
+
+    .b4-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .b4-benefit-card {
+      background: linear-gradient(145deg, #0d2242 0%, #06152d 100%);
+      border: 1px solid rgba(205, 163, 53, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 32px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .b4-benefit-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold-light);
+      box-shadow: 0 15px 35px rgba(205, 163, 53, 0.3);
+    }
+
+    .b4-icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(205, 163, 53, 0.15);
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+
+    .b4-benefit-card h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .b4-benefit-card p {
+      font-size: 0.88rem;
       color: #cbd5e1;
       line-height: 1.55;
     }
 
     /* ========================================================
-       BLOCO 4 - PASSO A PASSO (BRANCO)
-       ======================================================== */
-    .section-block-4 {
-      padding: 85px 0 100px 0;
-      text-align: center;
-    }
-
-    .b4-headline {
-      font-size: clamp(1.6rem, 3.2vw, 2.3rem);
-      font-weight: 800;
-      color: var(--navy-text);
-      margin-bottom: 55px;
-    }
-    .b4-headline span {
-      color: var(--gold-dark);
-    }
-
-    .b4-steps-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .b4-step-card {
-      background: #ffffff;
-      border: 1px solid rgba(205, 163, 53, 0.35);
-      border-radius: var(--radius-lg);
-      padding: 36px 40px;
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 36px;
-      align-items: center;
-      text-align: left;
-      box-shadow: 0 10px 30px rgba(7, 21, 43, 0.06);
-      transition: all 0.35s ease;
-    }
-    .b4-step-card:hover {
-      border-color: var(--gold-primary);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover-gold);
-    }
-
-    .b4-step-info h4 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--gold-dark);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-    .b4-step-info h3 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--navy-text);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-    .b4-step-info p {
-      font-size: 0.95rem;
-      color: #475569;
-      line-height: 1.6;
-    }
-
-    .b4-step-image-box {
-      background: #f8fafc;
-      border: 2px dashed rgba(205, 163, 53, 0.6);
-      border-radius: var(--radius-md);
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .b4-step-image-box:hover {
-      border-color: var(--gold-dark);
-      transform: scale(1.02);
-    }
-    .b4-step-image-box i {
-      font-size: 28px;
-      color: var(--gold-dark);
-      margin-bottom: 10px;
-    }
-    .b4-step-image-box .img-label {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: var(--navy-text);
-      line-height: 1.35;
-    }
-
-    /* ========================================================
-       BLOCO 5 - ENTREGÁVEIS (AZUL MARINHO)
+       BLOCO 5 - ENTREGÁVEIS (BRANCO)
        ======================================================== */
     .section-block-5 {
       padding: 90px 0 100px 0;
@@ -617,15 +619,13 @@
     .b5-headline {
       font-size: clamp(1.5rem, 3vw, 2.1rem);
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
       max-width: 820px;
       margin: 0 auto 50px auto;
       line-height: 1.35;
     }
     .b5-headline span {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--gold-dark);
     }
 
     .b5-deliverables-container {
@@ -637,6 +637,102 @@
     }
 
     .b5-deliverable-card {
+      background: #ffffff;
+      border: 1px solid rgba(205, 163, 53, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 34px 38px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+      text-align: left;
+      box-shadow: 0 10px 28px rgba(7, 21, 43, 0.06);
+      transition: all 0.35s ease;
+    }
+    .b5-deliverable-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover-gold);
+    }
+    /* Layout alternado: imagem na direita/texto na esquerda e vice-versa */
+    .b5-deliverable-card:nth-child(even) {
+      grid-template-columns: 0.9fr 1.3fr;
+    }
+    .b5-deliverable-card:nth-child(even) .b5-card-info {
+      order: 2;
+    }
+    .b5-deliverable-card:nth-child(even) .b5-mockup-box {
+      order: 1;
+    }
+
+    .b5-card-info h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy-text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .b5-card-info p {
+      font-size: 0.94rem;
+      color: #475569;
+      line-height: 1.62;
+    }
+
+    .b5-mockup-box {
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-md);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+    .b5-mockup-box:hover {
+      transform: scale(1.04) translateY(-5px);
+      filter: drop-shadow(0 16px 30px rgba(7, 21, 43, 0.18));
+    }
+    .b5-mockup-box img {
+      width: 100%;
+      max-width: 290px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 32px rgba(7, 21, 43, 0.14);
+    }
+    .b5-mockup-box i { display: none; }
+    .b5-mockup-box .mockup-label { display: none; }
+
+    /* ========================================================
+       BLOCO 6 - BÔNUS (AZUL MARINHO)
+       ======================================================== */
+    .section-block-6 {
+      padding: 85px 0 95px 0;
+      text-align: center;
+    }
+
+    .b6-pre-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .b6-main-title {
+      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 50px;
+    }
+
+    .b6-deliverable-card {
       background: rgba(13, 34, 66, 0.75);
       border: 1px solid rgba(205, 163, 53, 0.35);
       border-radius: var(--radius-lg);
@@ -649,28 +745,18 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
       transition: all 0.35s ease;
     }
-    .b5-deliverable-card:hover {
+    .b6-deliverable-card:hover {
       border-color: var(--gold-light);
       transform: translateY(-5px);
       box-shadow: var(--shadow-hover-gold);
     }
-
-    .b5-card-info h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
+    .b6-deliverable-card .b5-card-info h3 {
       color: #ffffff;
-      margin-bottom: 10px;
-      line-height: 1.3;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
     }
-    .b5-card-info p {
-      font-size: 0.94rem;
+    .b6-deliverable-card .b5-card-info p {
       color: #cbd5e1;
-      line-height: 1.62;
     }
-
-    .b5-mockup-box {
+    .b6-mockup-box-white {
       background: linear-gradient(145deg, #091a33 0%, #050f1f 100%);
       border: 2px dashed rgba(205, 163, 53, 0.6);
       border-radius: var(--radius-md);
@@ -683,16 +769,16 @@
       text-align: center;
       transition: all 0.3s ease;
     }
-    .b5-mockup-box:hover {
+    .b6-mockup-box-white:hover {
       border-color: var(--gold-light);
       transform: scale(1.02);
     }
-    .b5-mockup-box i {
+    .b6-mockup-box-white i {
       font-size: 28px;
       color: var(--gold-light);
       margin-bottom: 10px;
     }
-    .b5-mockup-box .mockup-label {
+    .b6-mockup-box-white .mockup-label {
       font-size: 0.9rem;
       font-weight: 800;
       color: #ffffff;
@@ -700,83 +786,7 @@
     }
 
     /* ========================================================
-       BLOCO 6 - BÔNUS (BRANCO)
-       ======================================================== */
-    .section-block-6 {
-      padding: 85px 0 95px 0;
-      text-align: center;
-    }
-
-    .b6-pre-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--gold-dark);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-    }
-    .b6-main-title {
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-      font-weight: 800;
-      color: var(--navy-text);
-      margin-bottom: 50px;
-    }
-
-    .b6-deliverable-card {
-      background: #ffffff;
-      border: 1px solid rgba(205, 163, 53, 0.3);
-      border-radius: var(--radius-lg);
-      padding: 34px 38px;
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 34px;
-      align-items: center;
-      text-align: left;
-      box-shadow: 0 10px 28px rgba(7, 21, 43, 0.06);
-      transition: all 0.35s ease;
-    }
-    .b6-deliverable-card:hover {
-      border-color: var(--gold-primary);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover-gold);
-    }
-    .b6-deliverable-card .b5-card-info h3 {
-      color: var(--navy-text);
-    }
-    .b6-deliverable-card .b5-card-info p {
-      color: #475569;
-    }
-    .b6-mockup-box-white {
-      background: #f8fafc;
-      border: 2px dashed rgba(205, 163, 53, 0.6);
-      border-radius: var(--radius-md);
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .b6-mockup-box-white:hover {
-      border-color: var(--gold-dark);
-      transform: scale(1.02);
-    }
-    .b6-mockup-box-white i {
-      font-size: 28px;
-      color: var(--gold-dark);
-      margin-bottom: 10px;
-    }
-    .b6-mockup-box-white .mockup-label {
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: var(--navy-text);
-      line-height: 1.35;
-    }
-
-    /* ========================================================
-       BLOCO 7 - PARA QUEM SERVE (AZUL MARINHO)
+       BLOCO 7 - PARA QUEM SERVE (BRANCO)
        ======================================================== */
     .section-block-7 {
       padding: 90px 0 100px 0;
@@ -786,17 +796,15 @@
     .b7-headline {
       font-size: clamp(1.5rem, 3vw, 2.1rem);
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
       margin-bottom: 45px;
     }
     .b7-headline span {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--gold-dark);
     }
 
     .b7-card {
-      background: rgba(13, 34, 66, 0.75);
+      background: #ffffff;
       border: 1px solid rgba(205, 163, 53, 0.35);
       border-radius: var(--radius-xl);
       padding: 40px;
@@ -807,7 +815,7 @@
       max-width: 900px;
       margin: 0 auto 35px auto;
       text-align: left;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(7, 21, 43, 0.08);
     }
 
     .b7-list {
@@ -821,17 +829,17 @@
       align-items: flex-start;
       gap: 12px;
       font-size: 0.95rem;
-      color: #cbd5e1;
+      color: #334155;
       line-height: 1.5;
     }
     .b7-list li i {
-      color: #22c55e;
+      color: #16a34a;
       margin-top: 3px;
       font-size: 1.05rem;
     }
 
     .b7-image-box {
-      background: linear-gradient(145deg, #091a33 0%, #050f1f 100%);
+      background: #f8fafc;
       border: 2px dashed rgba(205, 163, 53, 0.6);
       border-radius: var(--radius-md);
       min-height: 250px;
@@ -844,27 +852,53 @@
     }
     .b7-image-box i {
       font-size: 32px;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 12px;
     }
     .b7-image-box .img-label {
       font-size: 0.95rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
       line-height: 1.4;
     }
 
     .b7-footer-text {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--navy-text);
       max-width: 760px;
       margin: 0 auto;
       line-height: 1.5;
     }
 
+    .btn-cta-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+      color: #ffffff;
+      font-size: 1.12rem;
+      font-weight: 800;
+      padding: 18px 38px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
+      transition: all 0.3s ease;
+      margin-top: 28px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-cta-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.45);
+      background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+      color: #ffffff;
+    }
+
     /* ========================================================
-       BLOCO 8 - RECAPITULANDO (BRANCO)
+       BLOCO 8 - RECAPITULANDO (AZUL MARINHO)
        ======================================================== */
     .section-block-8 {
       padding: 85px 0 95px 0;
@@ -874,21 +908,21 @@
     .b8-headline {
       font-size: clamp(1.4rem, 2.7vw, 1.95rem);
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       max-width: 820px;
       margin: 0 auto 40px auto;
       line-height: 1.4;
     }
 
     .b8-recap-box {
-      background: #f8fafc;
-      border: 1px solid rgba(205, 163, 53, 0.4);
+      background: rgba(13, 34, 66, 0.8);
+      border: 1px solid rgba(205, 163, 53, 0.45);
       border-radius: var(--radius-lg);
       padding: 35px 40px;
       max-width: 760px;
       margin: 0 auto 35px auto;
       text-align: left;
-      box-shadow: 0 10px 25px rgba(7, 21, 43, 0.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
     .b8-item-row {
@@ -898,7 +932,7 @@
       padding: 12px 0;
       border-bottom: 1px dashed rgba(205, 163, 53, 0.4);
       font-size: 0.98rem;
-      color: var(--navy-text);
+      color: #ffffff;
     }
     .b8-item-row:last-child {
       border-bottom: none;
@@ -910,31 +944,31 @@
       font-weight: 700;
     }
     .b8-item-row .item-left i {
-      color: #16a34a;
+      color: #22c55e;
     }
     .b8-item-row .item-price {
       font-weight: 800;
-      color: var(--gold-dark);
+      color: var(--gold-light);
       letter-spacing: 0.5px;
     }
 
     .b8-total-anchor {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       margin-bottom: 10px;
       text-transform: uppercase;
     }
     .b8-anchor-sub {
       font-size: 1.05rem;
-      color: var(--gold-dark);
+      color: var(--gold-light);
       font-weight: 700;
       max-width: 680px;
       margin: 0 auto;
     }
 
     /* ========================================================
-       BLOCO 9 & 13 - VALOR / CHECKOUT (AZUL MARINHO)
+       BLOCO 9 & 13 - VALOR / CHECKOUT (BRANCO)
        ======================================================== */
     .section-block-offer {
       padding: 95px 0 105px 0;
@@ -953,7 +987,7 @@
       max-width: 920px;
       margin: 0 auto;
       text-align: left;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(205, 163, 53, 0.25);
+      box-shadow: 0 20px 50px rgba(7, 21, 43, 0.12), 0 0 35px rgba(205, 163, 53, 0.2);
     }
 
     .offer-mockup-left {
@@ -1034,15 +1068,68 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 100%;
       cursor: pointer;
       border: none;
+      animation: pulseGreenBtn 2s ease-in-out infinite, rippleGreen 2s ease-in-out infinite;
     }
     .btn-buy-now:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.45);
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 18px 38px rgba(22, 163, 74, 0.55) !important;
       background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+      animation: none;
+    }
+
+    .offer-dashed-divider {
+      border-top: 1.5px dashed #cbd5e1;
+      margin: 22px 0 16px 0;
+      width: 100%;
+    }
+
+    .offer-trust-seals-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .trust-seal-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-align: left;
+    }
+
+    .trust-seal-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-seal-icon svg {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    .trust-seal-labels {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.18;
+    }
+    .trust-seal-labels .seal-top {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #475569;
+    }
+    .trust-seal-labels .seal-bottom {
+      font-size: 0.82rem;
+      font-weight: 850;
+      color: #0f172a;
+      letter-spacing: -0.2px;
     }
 
     .offer-security-seals {
@@ -1061,7 +1148,7 @@
     }
 
     /* ========================================================
-       BLOCO 10 - COMO ACESSAR (BRANCO)
+       BLOCO 10 - COMO ACESSAR (AZUL MARINHO)
        ======================================================== */
     .section-block-10 {
       padding: 85px 0 95px 0;
@@ -1071,7 +1158,7 @@
     .b10-headline {
       font-size: clamp(1.45rem, 2.8vw, 2rem);
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       max-width: 780px;
       margin: 0 auto 50px auto;
       line-height: 1.4;
@@ -1084,50 +1171,50 @@
     }
 
     .b10-step-card {
-      background: #f8fafc;
-      border: 1px solid rgba(205, 163, 53, 0.3);
+      background: rgba(13, 34, 66, 0.75);
+      border: 1px solid rgba(205, 163, 53, 0.35);
       border-radius: var(--radius-lg);
       padding: 34px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(7, 21, 43, 0.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
       transition: all 0.3s ease;
     }
     .b10-step-card:hover {
       transform: translateY(-6px);
-      border-color: var(--gold-primary);
+      border-color: var(--gold-light);
       box-shadow: var(--shadow-hover-gold);
     }
     .b10-step-icon {
       width: 60px;
       height: 60px;
-      background: #ffffff;
-      border: 1.5px solid var(--gold-primary);
+      background: rgba(205, 163, 53, 0.15);
+      border: 1.5px solid var(--gold-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      color: #16a34a;
+      color: var(--gold-light);
       margin-bottom: 20px;
     }
     .b10-step-title {
       font-size: 1.15rem;
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       margin-bottom: 10px;
       text-transform: uppercase;
     }
     .b10-step-desc {
       font-size: 0.92rem;
-      color: #475569;
+      color: #cbd5e1;
       line-height: 1.55;
     }
 
     /* ========================================================
-       BLOCO 11 - AUTORIDADE (AZUL MARINHO)
+       BLOCO 11 - AUTORIDADE (BRANCO)
        ======================================================== */
     .section-block-11 {
       padding: 90px 0 100px 0;
@@ -1145,23 +1232,23 @@
     .b11-info h2 {
       font-size: 2.2rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
       margin-bottom: 6px;
     }
     .b11-info h4 {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 18px;
     }
     .b11-info p {
       font-size: 0.98rem;
-      color: #cbd5e1;
+      color: #475569;
       line-height: 1.7;
     }
 
     .b11-expert-box {
-      background: linear-gradient(145deg, #0d2242 0%, #06152d 100%);
+      background: #f8fafc;
       border: 2px dashed rgba(205, 163, 53, 0.6);
       border-radius: var(--radius-xl);
       min-height: 300px;
@@ -1171,21 +1258,21 @@
       justify-content: center;
       padding: 30px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(7, 21, 43, 0.08);
     }
     .b11-expert-box i {
       font-size: 48px;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 14px;
     }
     .b11-expert-box .expert-label {
       font-size: 1.1rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--navy-text);
     }
 
     /* ========================================================
-       BLOCO 12 - CONVERSA SÉRIA (BRANCO)
+       BLOCO 12 - CONVERSA SÉRIA (AZUL MARINHO)
        ======================================================== */
     .section-block-12 {
       padding: 85px 0 95px 0;
@@ -1195,7 +1282,7 @@
     .b12-headline {
       font-size: clamp(1.6rem, 3.2vw, 2.3rem);
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       margin-bottom: 45px;
     }
 
@@ -1214,14 +1301,14 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(7, 21, 43, 0.06);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
     .b12-option-card.op-red {
-      background: #ffe4e6;
+      background: rgba(255, 228, 230, 0.95);
       border: 1.5px solid #f87171;
     }
     .b12-option-card.op-green {
-      background: #dcfce7;
+      background: rgba(220, 252, 231, 0.95);
       border: 1.5px solid #4ade80;
     }
 
@@ -1242,7 +1329,7 @@
 
     .b12-option-card p {
       font-size: 0.95rem;
-      color: #475569;
+      color: #334155;
       line-height: 1.6;
     }
 
@@ -1253,16 +1340,16 @@
     .b12-lead {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       margin-bottom: 10px;
     }
     .b12-action-text {
       font-size: 1.05rem;
-      color: #475569;
+      color: #cbd5e1;
     }
 
     /* ========================================================
-       BLOCO 14 - FAQ (BRANCO)
+       BLOCO 14 - FAQ (AZUL MARINHO)
        ======================================================== */
     .section-block-14 {
       padding: 85px 0 95px 0;
@@ -1272,7 +1359,7 @@
     .b14-headline {
       font-size: clamp(1.7rem, 3.4vw, 2.4rem);
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       margin-bottom: 45px;
     }
 
@@ -1286,14 +1373,14 @@
     }
 
     .b14-faq-item {
-      background: #f8fafc;
+      background: rgba(13, 34, 66, 0.75);
       border: 1px solid rgba(205, 163, 53, 0.35);
       border-radius: var(--radius-md);
       overflow: hidden;
       transition: all 0.3s ease;
     }
     .b14-faq-item:hover {
-      border-color: var(--gold-primary);
+      border-color: var(--gold-light);
     }
 
     .b14-faq-question {
@@ -1304,11 +1391,11 @@
       cursor: pointer;
       font-weight: 700;
       font-size: 1.05rem;
-      color: var(--navy-text);
+      color: #ffffff;
       user-select: none;
     }
     .b14-faq-question .arrow {
-      color: var(--gold-dark);
+      color: var(--gold-light);
       font-size: 1rem;
       transition: transform 0.35s ease;
     }
@@ -1320,7 +1407,7 @@
       max-height: 0;
       overflow: hidden;
       padding: 0 24px;
-      color: #475569;
+      color: #cbd5e1;
       font-size: 0.95rem;
       line-height: 1.65;
       transition: max-height 0.35s ease, padding 0.35s ease;
@@ -1367,16 +1454,33 @@
         margin: 0 10px 25px 10px;
         border-radius: var(--radius-lg);
       }
-      .b2-grid,
+      .b3-visual-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+      .b3-doubt-column {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        padding: 0;
+      }
+      .b3-image-backdrop {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .b3-image-backdrop img {
+        max-height: 460px;
+      }
+      .b4-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
       .b10-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
         margin: 0 auto;
       }
-      .b3-rumination-layout {
-        grid-template-columns: 1fr;
-      }
-      .b4-step-card,
       .b5-deliverable-card,
       .b6-deliverable-card,
       .b7-card,
@@ -1425,153 +1529,109 @@
       
       <!-- Imagem da sua Logo -->
       <div class="b1-logo-box reveal-scale">
-        <img src="assets/logo.webp" alt="O Segredo do Aluguel Seguro" onerror="this.style.display='none'; document.getElementById('b1-logo-txt').style.display='flex';">
+        <img src="assets/logo-dourado.png" alt="O Segredo do Aluguel Seguro" onerror="this.style.display='none'; document.getElementById('b1-logo-txt').style.display='flex';">
         <div id="b1-logo-txt" class="b1-logo-placeholder" style="display: none;">
           <i class="fa-solid fa-shield-halved" style="color: var(--gold-light); font-size: 24px;"></i>
           <span>Imagem da sua logo!</span>
         </div>
       </div>
 
-      <!-- Headline Principal -->
-      <h1 class="b1-headline reveal">
-        Descubra como <strong class="gold-highlight-light">{promessa principal}</strong> em <strong class="gold-highlight-light">{tempo específico}</strong>, mesmo que <strong class="gold-highlight-light">{objeção/dificuldade}</strong>.
-      </h1>
+      <!-- Pré-título / Eyebrow -->
+      <div class="reveal">
+        <div class="b1-eyebrow">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>O que as Imobiliárias não contam...</span>
+        </div>
+      </div>
 
-      <!-- Comparativo Antes e Depois (Sem Prevenção vs Com Prevenção) -->
+      <!-- Headline Principal e Subtítulo Harmonizados -->
+      <div class="b1-header-content reveal">
+        <h1 class="b1-main-title">
+          Descubra os <strong class="gold-highlight-light">7 Segredos</strong> que as Imobiliárias utilizam para <strong class="gold-highlight-light">reduzir os riscos de uma locação</strong>
+        </h1>
+        <p class="b1-subtitle">
+          Aprenda como proteger melhor seu imóvel, mesmo sem entender nada de aluguel, com um guia rápido e fácil — sem precisar virar especialista!
+        </p>
+      </div>
+
+      <!-- Comparativo Antes e Depois (Nova Imagem Oficial) -->
       <div class="b1-image-container reveal delay-1">
-        <img src="assets/comparativo-aluguel.jpg" alt="Comparativo de Aluguel: Sem Prevenção vs Com Prevenção">
-      </div>
-
-
-
-    </div>
-  </section>
-
-  <!-- ========================================================
-       BLOCO 2 - DEPOIMENTOS (BRANCO)
-       ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 2 - DEPOIMENTOS</span>
-  </div>
-
-  <section class="section-block-2 section-white">
-    <div class="container">
-      
-      <h2 class="b2-headline reveal">
-        Veja casos de pessoas que que conseguiram alcançar <strong class="gold-highlight">{resultado positivo desejado}</strong> usando o <strong class="gold-highlight">{nome do produto}</strong>
-      </h2>
-
-      <div class="b2-grid">
-        
-        <div class="b2-testimonial-card reveal delay-1">
-          <div class="b2-tab-header">
-            <div class="b2-tab-title">
-              <i class="fa-solid fa-comment-dots"></i>
-              <span>Resumo do Depoimento</span>
-            </div>
-          </div>
-          <div class="b2-body-print">
-            <i class="fa-solid fa-image"></i>
-            <div class="print-label">Print de Depoimento</div>
-            <span class="print-desc">[ Inserir Print ]</span>
-          </div>
-        </div>
-
-        <div class="b2-testimonial-card reveal delay-2">
-          <div class="b2-tab-header">
-            <div class="b2-tab-title">
-              <i class="fa-solid fa-comment-dots"></i>
-              <span>Resumo do Depoimento</span>
-            </div>
-          </div>
-          <div class="b2-body-print">
-            <i class="fa-solid fa-image"></i>
-            <div class="print-label">Print de Depoimento</div>
-            <span class="print-desc">[ Inserir Print ]</span>
-          </div>
-        </div>
-
-        <div class="b2-testimonial-card reveal delay-3">
-          <div class="b2-tab-header">
-            <div class="b2-tab-title">
-              <i class="fa-solid fa-comment-dots"></i>
-              <span>Resumo do Depoimento</span>
-            </div>
-          </div>
-          <div class="b2-body-print">
-            <i class="fa-solid fa-image"></i>
-            <div class="print-label">Print de Depoimento</div>
-            <span class="print-desc">[ Inserir Print ]</span>
-          </div>
-        </div>
-
+        <img src="assets/comparativo-aluguel.jpg" alt="Comparativo de Aluguel: Sem Prevenção vs Com Prevenção" loading="eager">
       </div>
 
     </div>
   </section>
 
   <!-- ========================================================
-       BLOCO 3 - RUMINAÇÃO (AZUL MARINHO)
+       BLOCO 3 - RUMINAÇÃO (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 3 - RUMINAÇÃO</span>
   </div>
 
-  <section class="section-block-3 section-navy">
+  <section class="section-block-3 section-white">
     <div class="container">
       
-      <h2 class="b3-top-text reveal">
-        Você não aguenta mais <strong class="gold-highlight-light">{ação repetitiva/dor cotidiana}</strong> e ver sempre <strong class="gold-highlight-light">{resultado frustrante}</strong>.
+      <p class="b3-pre-title reveal">Fala a verdade...</p>
+
+      <h2 class="b3-headline reveal">
+        Você alugou o seu imóvel para ganhar dinheiro, mas agora vive com medo de ter <span class="b3-danger-word">PREJUÍZO!</span>
       </h2>
 
       <p class="b3-sub-text reveal">
-        Por isso, você pensa:
+        Por isso, toda vez que você pensa no seu imóvel alugado, essas perguntas vêm a sua cabeça:
       </p>
 
-      <div class="b3-rumination-layout">
-        
-        <div class="b3-column-side">
-          <div class="b3-rumination-card reveal delay-1">
-            <span>Ruminação 1</span>
+      <!-- Visual da Imagem com as 4 Caixinhas em Destaque -->
+      <div class="b3-visual-wrap reveal delay-1">
+        <div class="b3-visual-grid">
+          
+          <div class="b3-doubt-column">
+            <div class="b3-doubt-card">
+              <div class="doubt-text">"E se o inquilino parar de pagar e não quiser sair?"</div>
+            </div>
+            <div class="b3-doubt-card">
+              <div class="doubt-text">"E se ele destruir a minha casa e não quiser e nem ter como pagar?"</div>
+            </div>
           </div>
-          <div class="b3-rumination-card reveal delay-2">
-            <span>Ruminação 2</span>
-          </div>
-        </div>
 
-        <div class="b3-persona-box reveal-scale">
-          <i class="fa-solid fa-user-clock"></i>
-          <div class="persona-label">Imagem da persona antes da tranformação!</div>
-          <span class="persona-sub">[ Inserir Foto ]</span>
-        </div>
-
-        <div class="b3-column-side">
-          <div class="b3-rumination-card reveal delay-1">
-            <span>Ruminação 3</span>
+          <div class="b3-image-backdrop">
+            <img src="assets/homem-preocupado-sem-margem.jpg" alt="Homem preocupado com aluguel">
+            <div class="b3-image-overlay"></div>
           </div>
-          <div class="b3-rumination-card reveal delay-2">
-            <span>Ruminação 4</span>
-          </div>
-        </div>
 
+          <div class="b3-doubt-column">
+            <div class="b3-doubt-card">
+              <div class="doubt-text">"E se ele destruir meu imóvel e eu ficar com o prejuízo?"</div>
+            </div>
+            <div class="b3-doubt-card">
+              <div class="doubt-text">"E se eu estiver fazendo tudo errado e nem souber?"</div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="b3-bottom-statements reveal">
-        <p class="b3-lead-in">Eu sei...</p>
+      <!-- Texto pós-imagem -->
+      <div class="b3-bottom-statements reveal delay-2">
         <p class="b3-pain-statement">
-          Você não aguenta mais <strong>{dor específica que a persona vive}</strong>.
+          Você só queria receber seu aluguel em paz, mas vive preocupado com o que pode dar errado!
         </p>
-        <p class="b3-question-tag">Estou certo?</p>
+        <p class="b3-worse-statement">
+          E o pior: você não sabe exatamente quais cuidados tomar, quais erros evitar ou o que cobrar da imobiliária para proteger seu patrimônio.
+        </p>
       </div>
 
-      <div class="b3-alert-box reveal-scale">
+      <!-- Caixa de Alerta Vermelha "Estou certo?" -->
+      <div class="b3-alert-box reveal delay-3">
         <div class="b3-alert-icon">
           <i class="fa-solid fa-triangle-exclamation"></i>
         </div>
         <div class="b3-alert-content">
           <h3>Estou certo?</h3>
           <p>
-            Se você pudesse ter <strong>{resultado/benefício principal}</strong>, sem <strong>{objeção maior}</strong>,
+            Mas e se você pudesse aprender o que realmente precisa conferir em uma locação, mesmo sem entender nada de aluguel, com um guia simples e prático? 
+            <span class="gold-alert-tag">Isso faria diferença pra você?</span>
           </p>
         </div>
       </div>
@@ -1580,55 +1640,55 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 4 - PASSO A PASSO (BRANCO)
+       BLOCO 4 - O QUE VOCÊ VAI RECEBER (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
-    <span>BLOCO 4 - PASSO A PASSO</span>
+    <span>BLOCO 4 - O QUE VOCÊ VAI RECEBER</span>
   </div>
 
-  <section class="section-block-4 section-white">
+  <section class="section-block-4 section-navy">
     <div class="container">
       
-      <h2 class="b4-headline reveal">
-        Esses são os 3 passos para <span>{resultado principal}</span>
-      </h2>
+      <div class="b4-badge-banner reveal">
+        <span>Com o Guia O Segredo do Aluguel Seguro você vai:</span>
+      </div>
 
-      <div class="b4-steps-container">
+      <div class="b4-grid reveal delay-1">
         
-        <div class="b4-step-card reveal delay-1">
-          <div class="b4-step-info">
-            <h4>Passo 1:</h4>
-            <h3>{INSIRA O PASSO 1}</h3>
-            <p>(ADICIONE UMA BREVE DESCRIÇÃO SOBRE O PASSO 1)</p>
-          </div>
-          <div class="b4-step-image-box">
-            <i class="fa-solid fa-image"></i>
-            <div class="img-label">Imagem seguindo o título do passo a passo!</div>
-          </div>
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-file-shield"></i></div>
+          <h4>Blindar o seu contrato de locação</h4>
+          <p>Aprender as cláusulas essenciais que eliminam brechas perigosas para o proprietário.</p>
         </div>
 
-        <div class="b4-step-card reveal delay-2">
-          <div class="b4-step-info">
-            <h4>Passo 2:</h4>
-            <h3>{INSIRA O PASSO 2}</h3>
-            <p>(ADICIONE UMA BREVE DESCRIÇÃO SOBRE O PASSO 2)</p>
-          </div>
-          <div class="b4-step-image-box">
-            <i class="fa-solid fa-image"></i>
-            <div class="img-label">Imagem seguindo o título do passo a passo!</div>
-          </div>
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-clipboard-check"></i></div>
+          <h4>Cobrar vistorias blindadas e incontestáveis</h4>
+          <p>Saber o que conferir para que o inquilino entregue o imóvel do jeito exato que recebeu.</p>
         </div>
 
-        <div class="b4-step-card reveal delay-3">
-          <div class="b4-step-info">
-            <h4>Passo 3:</h4>
-            <h3>{INSIRA O PASSO 3}</h3>
-            <p>(ADICIONE UMA BREVE DESCRIÇÃO SOBRE O PASSO 3)</p>
-          </div>
-          <div class="b4-step-image-box">
-            <i class="fa-solid fa-image"></i>
-            <div class="img-label">Imagem seguindo o título do passo a passo!</div>
-          </div>
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-user-shield"></i></div>
+          <h4>Identificar inquilinos problemáticos antes</h4>
+          <p>Reconhecer sinais de alerta e riscos cadastrais antes de assinar qualquer contrato.</p>
+        </div>
+
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h4>Reduzir o risco de inadimplência a zero</h4>
+          <p>Protocolos práticos de segurança e cobrança rápida para nunca acumular dívidas.</p>
+        </div>
+
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-handshake"></i></div>
+          <h4>Saber exatamente o que cobrar da imobiliária</h4>
+          <p>Tenha autoridade para fiscalizar sua administradora e exigir a postura correta.</p>
+        </div>
+
+        <div class="b4-benefit-card">
+          <div class="b4-icon-circle"><i class="fa-solid fa-sack-dollar"></i></div>
+          <h4>Receber seus aluguéis todo mês em paz</h4>
+          <p>Transforme seu imóvel em uma renda verdadeiramente segura, passiva e previsível.</p>
         </div>
 
       </div>
@@ -1637,70 +1697,109 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 5 - ENTREGÁVEIS (AZUL MARINHO)
+       BLOCO 5 - ENTREGÁVEIS (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 5 - ENTREGÁVEIS</span>
   </div>
 
-  <section class="section-block-5 section-navy">
+  <section class="section-block-5 section-white">
     <div class="container">
       
       <h2 class="b5-headline reveal">
-        Veja tudo que você vai receber com o <span>{NOME DO SEU PRODUTO}</span>
+        Veja tudo o que você vai receber com <span>O Segredo do Aluguel Seguro</span>
       </h2>
 
       <div class="b5-deliverables-container">
         
+        <!-- Entregável 1: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>CHECKLIST = (Promessa Principal)</h3>
+            <h3>1. O que conferir Antes de Entregar as Chaves</h3>
             <p>
-              Você terá em mãos um checklist do (tipo de ações rápidas, simples, práticas) que tornará impossível você não (resultado desejado principal) em (tempo específico).
+              Nunca mais fique perdido na hora de entregar as chaves! Tenha em mãos um protocolo prático com os cuidados indispensáveis, documentos e conferências que precisam estar em ordem antes de colocar um inquilino no seu imóvel.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <i class="fa-solid fa-box-open"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
+            <img src="assets/entregaveis/roteiro-chaves.png" alt="Roteiro da Entrega das Chaves">
           </div>
         </div>
 
+        <!-- Entregável 2: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-2">
           <div class="b5-card-info">
-            <h3>Template de Exercícios Práticos para (RESULTADO)</h3>
+            <h3>2. Acesso Imediato à Biblioteca do Raio-X da Locação — 21 Perguntas Essenciais</h3>
             <p>
-              Um passo a passo para você (ação principal), ou seja, (explicação curta do que isso significa). Você vai saber exatamente como (transformação/benefício principal).
+              Acesso imediato das 21 perguntas essenciais que todo proprietário deveria fazer antes de alugar seu imóvel. Identifique riscos escondidos, saiba o que exigir e descubra o que sua imobiliária precisa esclarecer antes de fechar o negócio.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <i class="fa-solid fa-box-open"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
+            <img src="assets/entregaveis/raio-x-locacao.png" alt="Raio-X da Locação Segura">
           </div>
         </div>
 
+        <!-- Entregável 3: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-3">
           <div class="b5-card-info">
-            <h3>GUIA DE AÇÕES PARA (RESULTADO)</h3>
+            <h3>3. O Inquilino Certo</h3>
             <p>
-              Guia completo com exercícios (característica: simples, rápido, poderoso), para você aplicar (tempo de aplicação: ainda hoje, em apenas alguns minutos, em 7 dias) e (benefício principal/transformação), sem que você precise (objeção comum).
+              Você vai aprender exatamente como avaliar um futuro inquilino antes de entregar seu patrimônio nas mãos dele. Descubra o que analisar além da renda, quais sinais de alerta observar e como identificar riscos que podem se transformar em meses de inadimplência e prejuízo.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <i class="fa-solid fa-box-open"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
+            <img src="assets/entregaveis/inquilino-certo.png" alt="O Inquilino Certo">
           </div>
         </div>
 
-        <div class="b5-deliverable-card reveal delay-4">
+        <!-- Entregável 4: Imagem à esquerda, Texto à direita -->
+        <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>Lista de Erros te impedem de (alcançar resultado esperado)</h3>
+            <h3>4. Mapa das Garantias Locatícias</h3>
             <p>
-              Você vai receber uma lista com os (número de erros) erros mais comuns que acontecem quando (situação/dor da persona).
+              Pare de escolher garantias no escuro! Compare fiador, caução, seguro-fiança e outras modalidades. Entenda as vantagens e limitações de cada uma para proteger melhor sua renda em caso de inadimplência.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <i class="fa-solid fa-box-open"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
+            <img src="assets/entregaveis/mapa-garantias.png" alt="Mapa das Garantias Locatícias">
+          </div>
+        </div>
+
+        <!-- Entregável 5: Texto à esquerda, Imagem à direita -->
+        <div class="b5-deliverable-card reveal delay-2">
+          <div class="b5-card-info">
+            <h3>5. As TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado</h3>
+            <p>
+              Conheça as TOP 10 cláusulas que não podem faltar no seu contrato de locação! Descubra os pontos essenciais para proteger seus direitos, evitar prejuízos e reduzir conflitos com danos ao imóvel, multas e desocupação antecipada.
+            </p>
+          </div>
+          <div class="b5-mockup-box">
+            <img src="assets/entregaveis/top10-clausulas.png" alt="As TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado">
+          </div>
+        </div>
+
+        <!-- Entregável 6: Imagem à esquerda, Texto à direita -->
+        <div class="b5-deliverable-card reveal delay-3">
+          <div class="b5-card-info">
+            <h3>6. Como Realizar o Checklist da Vistoria Segura</h3>
+            <p>
+              Aprenda exatamente como realizar uma vistoria completa e segura do seu imóvel! Descubra o que conferir, fotografar e documentar na entrada e na saída do inquilino, evitando falhas que podem gerar discussões e prejuízos ao seu patrimônio.
+            </p>
+          </div>
+          <div class="b5-mockup-box">
+            <img src="assets/entregaveis/checklist-vistoria.png" alt="Checklist da Vistoria Segura">
+          </div>
+        </div>
+
+        <!-- Entregável 7: Texto à esquerda, Imagem à direita -->
+        <div class="b5-deliverable-card reveal delay-1">
+          <div class="b5-card-info">
+            <h3>7. Manual do Aluguel Seguro</h3>
+            <p>
+              Tenha em mãos um verdadeiro guia para proteger seu patrimônio! Um passo a passo simples e organizado, da escolha do inquilino à devolução das chaves, para acompanhar sua locação com confiança, mesmo sem entender nada de aluguel.
+            </p>
+          </div>
+          <div class="b5-mockup-box">
+            <img src="assets/entregaveis/manual-aluguel-seguro.png" alt="Manual do Aluguel Seguro">
           </div>
         </div>
 
@@ -1710,56 +1809,31 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 6 - BÔNUS (BRANCO)
+       BLOCO 6 - BÔNUS (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 6 - BÔNUS</span>
   </div>
 
-  <section class="section-block-6 section-white">
+  <section class="section-block-6 section-navy">
     <div class="container">
       
-      <p class="b6-pre-title reveal">AINDA NÃO ACABOU</p>
-      <h2 class="b6-main-title reveal">Você também vai receber...</h2>
+      <p class="b6-pre-title reveal">Ainda não acabou...</p>
+      <h2 class="b6-main-title reveal">Você também vai receber:</h2>
 
       <div class="b5-deliverables-container">
         
         <div class="b6-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>Manual da {Transformação}</h3>
+            <h3>Passo a Passo da Ficha Inteligente de Análise do Inquilino</h3>
             <p>
-              Neste manual você vai receber (tipo de conteúdo: dicas práticas, estratégias simples, exercícios rápidos) para (transformação desejada) e nunca mais (dor ou situação negativa que a persona quer evitar).
+              Uma ficha preenchível indispensável para organizar informações do candidato, conferir documentos, registrar referências e sinalizar pontos de atenção antes de aprovar a locação.
             </p>
           </div>
           <div class="b6-mockup-box-white">
-            <i class="fa-solid fa-gift"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
-          </div>
-        </div>
-
-        <div class="b6-deliverable-card reveal delay-2">
-          <div class="b5-card-info">
-            <h3>Calendário do (benefício principal)</h3>
-            <p>
-              O calendário tem toda sua programação diária, para você (benefício/resultado principal) em (tempo específico).
-            </p>
-          </div>
-          <div class="b6-mockup-box-white">
-            <i class="fa-solid fa-calendar-days"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
-          </div>
-        </div>
-
-        <div class="b6-deliverable-card reveal delay-3">
-          <div class="b5-card-info">
-            <h3>Protocolo para (promessa principal)</h3>
-            <p>
-              Um passo a passo prático e comprovado para você (transformação/resultado principal), mesmo que (objeção/dificuldade comum).
-            </p>
-          </div>
-          <div class="b6-mockup-box-white">
-            <i class="fa-solid fa-file-shield"></i>
-            <div class="mockup-label">Imagem do mockup do produto que será entregue!</div>
+            <i class="fa-solid fa-file-invoice"></i>
+            <div class="mockup-label">Ficha Inteligente de Análise do Inquilino</div>
+            <span class="mockup-subtext">[ Imagens serão colocadas depois ]</span>
           </div>
         </div>
 
@@ -1769,17 +1843,17 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 7 - PARA QUEM SERVE (AZUL MARINHO)
+       BLOCO 7 - PARA QUEM SERVE (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 7 - PARA QUEM SERVE</span>
   </div>
 
-  <section class="section-block-7 section-navy">
+  <section class="section-block-7 section-white">
     <div class="container">
       
       <h2 class="b7-headline reveal">
-        O <span>(NOME DO SEU PRODUTO)</span> é para você que:
+        <span>O Segredo do Aluguel Seguro</span> é para você que:
       </h2>
 
       <div class="b7-card reveal-scale">
@@ -1787,114 +1861,129 @@
           <ul class="b7-list">
             <li>
               <i class="fa-solid fa-circle-check"></i>
-              <span>(Desejo ou objetivo que a persona tem)</span>
+              <span>Tem medo de alugar seu imóvel e acabar ficando meses sem receber o aluguel.</span>
             </li>
             <li>
               <i class="fa-solid fa-circle-check"></i>
-              <span>(Dor ou frustração que a persona enfrenta)</span>
+              <span>Já teve prejuízos com inquilinos e não quer passar novamente por atrasos, danos ou dificuldades para recuperar seu imóvel.</span>
             </li>
             <li>
               <i class="fa-solid fa-circle-check"></i>
-              <span>(Situação comum que atrapalha)</span>
+              <span>Não sabe se o contrato e as garantias realmente protegem seu patrimônio caso alguma coisa dê errado.</span>
             </li>
             <li>
               <i class="fa-solid fa-circle-check"></i>
-              <span>(Erro ou perda de dinheiro que costuma acontecer)</span>
+              <span>Deixa tudo nas mãos da imobiliária, mas não sabe exatamente o que deve acompanhar, conferir, ou cobrar para proteger seus interesses.</span>
             </li>
             <li>
               <i class="fa-solid fa-circle-check"></i>
-              <span>(Promessa clara de benefício desejado)</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-circle-check"></i>
-              <span>(Segmento de pessoas que se encaixa no produto)</span>
+              <span>Quer transformar seu imóvel em uma fonte de renda segura, sem viver preocupado com inadimplência, prejuízos e dores de cabeça.</span>
             </li>
           </ul>
         </div>
 
         <div class="b7-image-box">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <div class="img-label">Imagem que mostra a transformação que o produto proporciona.</div>
+          <i class="fa-solid fa-shield-halved"></i>
+          <div class="img-label">Proteção total para o seu patrimônio imobiliário</div>
+          <span style="font-size: 0.8rem; color: #64748b; margin-top: 6px;">[ Imagens serão colocadas depois ]</span>
         </div>
       </div>
 
-      <p class="b7-footer-text reveal">
-        Enfim... Se você quer <strong>(DESEJO DA PERSONA)</strong>... O <strong>(NOME DO SEU PRODUTO)</strong> é para você!
-      </p>
+      <div class="reveal">
+        <p class="b7-footer-text">
+          Enfim... se você quer proteger seu patrimônio, evitar erros que podem custar caro e aprender o que fazer, conferir e exigir antes, durante e depois da locação, os 7 Segredos do Aluguel Seguro são para você!
+        </p>
+        <p style="margin-top: 14px; font-weight: 700; color: var(--navy-text);">
+          Então, toque no botão abaixo e receba agora o seu acesso!
+        </p>
+        <a href="#oferta-bloco9" class="btn-cta-gold">
+          <span>QUERO MEU ALUGUEL SEGURO AGORA</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
 
     </div>
   </section>
 
   <!-- ========================================================
-       BLOCO 8 - RECAPITULANDO (BRANCO)
+       BLOCO 8 - RECAPITULANDO (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 8 - RECAPITULANDO</span>
   </div>
 
-  <section class="section-block-8 section-white">
+  <section class="section-block-8 section-navy">
     <div class="container">
       
       <h2 class="b8-headline reveal">
-        RECAPITULANDO... Veja tudo que você vai receber no <strong>(NOME DO PRODUTO)</strong>
+        RECAPITULANDO...<br>
+        Veja tudo o que você vai receber com <strong>O Segredo do Aluguel Seguro</strong>
       </h2>
 
       <div class="b8-recap-box reveal-scale">
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>Roteiro da Entrega das Chaves</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 57,00</div>
         </div>
 
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>Raio-X da Locação</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 47,00</div>
         </div>
 
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>O Inquilino Certo</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 47,00</div>
         </div>
 
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>Mapa das Garantias Locatícias</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 37,00</div>
         </div>
 
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>As TOP 10 Cláusulas do Contrato</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 57,00</div>
         </div>
 
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>ENTREGÁVEL</span>
+            <span>Checklist da Vistoria Segura</span>
           </div>
-          <div class="item-price">147,00</div>
+          <div class="item-price">R$ 37,00</div>
+        </div>
+
+        <div class="b8-item-row">
+          <div class="item-left">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Manual do Aluguel Seguro</span>
+          </div>
+          <div class="item-price">R$ 73,00</div>
         </div>
       </div>
 
       <div class="reveal">
         <h3 class="b8-total-anchor">
-          TUDO ISSO DEVERIA CUSTAR: {SOMATÓRIA DE TODOS OS ENTREGÁVEIS}
+          TUDO ISSO DEVERIA CUSTAR: <span style="text-decoration: line-through; opacity: 0.85;">R$ 355,00</span>
         </h3>
         <p class="b8-anchor-sub">
-          Mas somente hoje você pode ter acesso ao <strong>(NOME DO PRODUTO)</strong> por um valor muito mais acessível!
+          Mas hoje você tem acesso ao <strong>O Segredo do Aluguel Seguro</strong> junto com o bônus por apenas:
         </p>
       </div>
 
@@ -1902,41 +1991,86 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 9 - VALOR (AZUL MARINHO)
+       BLOCO 9 - VALOR (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 9 - VALOR</span>
   </div>
 
-  <section class="section-block-offer section-navy" id="oferta-bloco9">
+  <section class="section-block-offer section-white" id="oferta-bloco9">
     <div class="container">
       
       <div class="offer-box-layout reveal-scale">
         
         <div class="offer-mockup-left">
           <i class="fa-solid fa-boxes-stacked"></i>
-          <div class="mockup-title">Imagem de todos os mockups juntos</div>
+          <div class="mockup-title">Mockup Completo O Segredo do Aluguel Seguro + Bônus</div>
+          <span style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">[ Imagens serão colocadas depois ]</span>
         </div>
 
         <div class="offer-pricing-right">
           <div class="offer-mini-logo-box">
             <i class="fa-solid fa-shield-halved" style="color: var(--gold-dark); margin-right: 4px;"></i>
-            Imagem da sua logo!
+            O Segredo do Aluguel Seguro
           </div>
 
-          <p class="offer-price-lead">Por apenas:</p>
-          <div class="offer-main-price">9x de 8,80</div>
-          <p class="offer-cash-price">ou 67,00 à vista</p>
+          <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
+          <div class="offer-main-price">12x de 9,97</div>
+          <p class="offer-cash-price">ou 97,00 à vista</p>
 
           <a href="#" class="btn-buy-now">
-            <span>QUERO COMPRAR AGORA</span>
+            <span>QUERO MEU ALUGUEL SEGURO</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
 
-          <div class="offer-security-seals">
-            <span><i class="fa-solid fa-lock" style="color: #16a34a;"></i> Compra Segura</span>
-            <span><i class="fa-solid fa-shield-halved" style="color: #16a34a;"></i> Satisfação</span>
-            <span><i class="fa-solid fa-user-shield" style="color: #16a34a;"></i> Privacidade</span>
+          <!-- Divisor + Selos de Confiança -->
+          <div class="offer-dashed-divider"></div>
+          <div class="offer-trust-seals-grid">
+            <!-- Compra Segura -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <path d="M18 7l9 4v8c0 5-4 9-9 11C13 28 9 24 9 19V11l9-4z" fill="#374151" fill-opacity="0.08" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 18l3 3 5-5" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Compra</span>
+                <span class="seal-bottom">Segura</span>
+              </div>
+            </div>
+            <!-- Satisfação Garantida -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <circle cx="18" cy="18" r="9" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 20c.8 1.5 2.1 2.5 4 2.5s3.2-1 4-2.5" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="14.5" cy="16.5" r="1" fill="#374151"/>
+                  <circle cx="21.5" cy="16.5" r="1" fill="#374151"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Satisfação</span>
+                <span class="seal-bottom">Garantida</span>
+              </div>
+            </div>
+            <!-- Privacidade Protegida -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <rect x="12" y="17" width="12" height="10" rx="2" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 17v-3a4 4 0 018 0v3" stroke="#374151" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle cx="18" cy="22" r="1.2" fill="#374151"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Privacidade</span>
+                <span class="seal-bottom">Protegida</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1946,13 +2080,13 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 10 - COMO ACESSAR (BRANCO)
+       BLOCO 10 - COMO ACESSAR (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 10 - COMO ACESSAR</span>
   </div>
 
-  <section class="section-block-10 section-white">
+  <section class="section-block-10 section-navy">
     <div class="container">
       
       <h2 class="b10-headline reveal">
@@ -1997,13 +2131,13 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 11 - AUTORIDADE (AZUL MARINHO)
+       BLOCO 11 - AUTORIDADE (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 11 - AUTORIDADE</span>
   </div>
 
-  <section class="section-block-11 section-navy">
+  <section class="section-block-11 section-white">
     <div class="container">
       
       <div class="b11-layout">
@@ -2027,13 +2161,13 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 12 - CONVERSA SÉRIA (BRANCO)
+       BLOCO 12 - CONVERSA SÉRIA (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 12 - CONVERSA SÉRIA</span>
   </div>
 
-  <section class="section-block-12 section-white">
+  <section class="section-block-12 section-navy">
     <div class="container">
       
       <h2 class="b12-headline reveal">
@@ -2071,41 +2205,86 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 13 - VALOR (AZUL MARINHO)
+       BLOCO 13 - VALOR (BRANCO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 13 - VALOR</span>
   </div>
 
-  <section class="section-block-offer section-navy" id="oferta-bloco13">
+  <section class="section-block-offer section-white" id="oferta-bloco13">
     <div class="container">
       
       <div class="offer-box-layout reveal-scale">
         
         <div class="offer-mockup-left">
           <i class="fa-solid fa-boxes-stacked"></i>
-          <div class="mockup-title">Imagem de todos os mockups juntos</div>
+          <div class="mockup-title">Mockup Completo O Segredo do Aluguel Seguro + Bônus</div>
+          <span style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">[ Imagens serão colocadas depois ]</span>
         </div>
 
         <div class="offer-pricing-right">
           <div class="offer-mini-logo-box">
             <i class="fa-solid fa-shield-halved" style="color: var(--gold-dark); margin-right: 4px;"></i>
-            Imagem da sua logo!
+            O Segredo do Aluguel Seguro
           </div>
 
-          <p class="offer-price-lead">Por apenas:</p>
-          <div class="offer-main-price">9x de 8,80</div>
-          <p class="offer-cash-price">ou 67,00 à vista</p>
+          <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
+          <div class="offer-main-price">12x de 9,97</div>
+          <p class="offer-cash-price">ou 97,00 à vista</p>
 
           <a href="#" class="btn-buy-now">
-            <span>QUERO COMPRAR AGORA</span>
+            <span>QUERO MEU ALUGUEL SEGURO</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
 
-          <div class="offer-security-seals">
-            <span><i class="fa-solid fa-lock" style="color: #16a34a;"></i> Compra Segura</span>
-            <span><i class="fa-solid fa-shield-halved" style="color: #16a34a;"></i> Satisfação</span>
-            <span><i class="fa-solid fa-user-shield" style="color: #16a34a;"></i> Privacidade</span>
+          <!-- Divisor + Selos de Confiança -->
+          <div class="offer-dashed-divider"></div>
+          <div class="offer-trust-seals-grid">
+            <!-- Compra Segura -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <path d="M18 7l9 4v8c0 5-4 9-9 11C13 28 9 24 9 19V11l9-4z" fill="#374151" fill-opacity="0.08" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 18l3 3 5-5" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Compra</span>
+                <span class="seal-bottom">Segura</span>
+              </div>
+            </div>
+            <!-- Satisfação Garantida -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <circle cx="18" cy="18" r="9" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 20c.8 1.5 2.1 2.5 4 2.5s3.2-1 4-2.5" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="14.5" cy="16.5" r="1" fill="#374151"/>
+                  <circle cx="21.5" cy="16.5" r="1" fill="#374151"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Satisfação</span>
+                <span class="seal-bottom">Garantida</span>
+              </div>
+            </div>
+            <!-- Privacidade Protegida -->
+            <div class="trust-seal-item">
+              <div class="trust-seal-icon">
+                <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="17" stroke="#374151" stroke-width="1.5"/>
+                  <rect x="12" y="17" width="12" height="10" rx="2" stroke="#374151" stroke-width="1.4"/>
+                  <path d="M14 17v-3a4 4 0 018 0v3" stroke="#374151" stroke-width="1.4" stroke-linecap="round"/>
+                  <circle cx="18" cy="22" r="1.2" fill="#374151"/>
+                </svg>
+              </div>
+              <div class="trust-seal-labels">
+                <span class="seal-top">Privacidade</span>
+                <span class="seal-bottom">Protegida</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -2115,13 +2294,13 @@
   </section>
 
   <!-- ========================================================
-       BLOCO 14 - FAQ (BRANCO)
+       BLOCO 14 - FAQ (AZUL MARINHO)
        ======================================================== -->
   <div class="block-indicator-bar">
     <span>BLOCO 14 - FAQ</span>
   </div>
 
-  <section class="section-block-14 section-white">
+  <section class="section-block-14 section-navy">
     <div class="container">
       
       <h2 class="b14-headline reveal">
