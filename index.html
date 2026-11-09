@@ -252,7 +252,7 @@
 
     .b1-logo-box {
       background: rgba(13, 34, 66, 0.85);
-      border: 1.5px solid var(--gold-primary);
+      border: none;
       border-radius: var(--radius-lg);
       padding: 16px 36px;
       display: inline-flex;
@@ -299,6 +299,9 @@
     .b1-header-content {
       max-width: 880px;
       margin: 0 auto 35px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .b1-main-title {
@@ -320,7 +323,7 @@
       color: #cbd5e1;
       line-height: 1.55;
       max-width: 780px;
-      margin: 0 auto;
+      margin: 0;
     }
 
     .b1-headline {
@@ -784,6 +787,15 @@
       color: #ffffff;
       line-height: 1.35;
     }
+    .b6-mockup-box-white img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
 
     /* ========================================================
        BLOCO 7 - PARA QUEM SERVE (BRANCO)
@@ -860,6 +872,16 @@
       font-weight: 800;
       color: var(--navy-text);
       line-height: 1.4;
+      margin-top: 14px;
+    }
+    .b7-image-box img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 28px rgba(7, 21, 43, 0.14);
     }
 
     .b7-footer-text {
@@ -1012,6 +1034,16 @@
       font-weight: 800;
       color: var(--navy-text);
       max-width: 85%;
+      margin-top: 16px;
+    }
+    .offer-mockup-left img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 14px 30px rgba(7, 21, 43, 0.16);
     }
 
     .offer-pricing-right {
@@ -1248,15 +1280,16 @@
     }
 
     .b11-expert-box {
+      grid-column: 1 / -1;
       background: #f8fafc;
       border: 2px dashed rgba(205, 163, 53, 0.6);
       border-radius: var(--radius-xl);
-      min-height: 300px;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 30px;
+      padding: 24px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(7, 21, 43, 0.08);
     }
@@ -1269,6 +1302,15 @@
       font-size: 1.1rem;
       font-weight: 800;
       color: var(--navy-text);
+    }
+    .b11-expert-box img {
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 14px 30px rgba(7, 21, 43, 0.16);
     }
 
     /* ========================================================
@@ -1295,42 +1337,53 @@
     }
 
     .b12-option-card {
+      background: #ffffff;
+      border: 1.5px solid rgba(205, 163, 53, 0.45);
       border-radius: var(--radius-lg);
-      padding: 34px 28px;
+      padding: 30px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      color: var(--navy-text);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .b12-option-card.op-red {
-      background: rgba(255, 228, 230, 0.95);
-      border: 1.5px solid #f87171;
-    }
-    .b12-option-card.op-green {
-      background: rgba(220, 252, 231, 0.95);
-      border: 1.5px solid #4ade80;
+    .b12-option-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-light);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
     }
 
-    .b12-option-card .op-icon {
-      font-size: 32px;
-      margin-bottom: 14px;
+    .b12-option-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: rgba(205, 163, 53, 0.14);
+      border: 1px solid rgba(205, 163, 53, 0.45);
+      border-radius: 50px;
+      padding: 6px 14px;
+      margin-bottom: 16px;
     }
-    .b12-option-card.op-red .op-icon { color: #dc2626; }
-    .b12-option-card.op-green .op-icon { color: #16a34a; }
 
     .b12-option-card h3 {
-      font-size: 1.35rem;
+      font-size: 1.22rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      color: var(--navy-text);
+      margin-bottom: 14px;
+      line-height: 1.35;
     }
-    .b12-option-card.op-red h3 { color: #b91c1c; }
-    .b12-option-card.op-green h3 { color: #15803d; }
 
     .b12-option-card p {
-      font-size: 0.95rem;
-      color: #334155;
+      font-size: 0.94rem;
+      color: #475569;
       line-height: 1.6;
+    }
+    .b12-option-card p + p {
+      margin-top: 8px;
     }
 
     .b12-statements {
@@ -1439,10 +1492,27 @@
       color: var(--gold-primary);
     }
 
+    .b15-contact {
+      margin-bottom: 20px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+    .b15-contact a {
+      color: var(--gold-light);
+    }
+    .b15-contact a:hover {
+      color: #ffffff;
+    }
+
     .b15-disclaimer {
       max-width: 820px;
       margin: 0 auto;
       line-height: 1.65;
+      color: #64748b;
+    }
+
+    .b15-copyright {
+      margin-top: 22px;
       color: #64748b;
     }
 
@@ -1489,6 +1559,35 @@
         grid-template-columns: 1fr;
         gap: 24px;
         padding: 28px 20px;
+      }
+      .b5-deliverable-card:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+      .b5-deliverable-card:nth-child(even) .b5-card-info,
+      .b5-deliverable-card:nth-child(even) .b5-mockup-box,
+      .b6-deliverable-card:nth-child(even) .b5-card-info,
+      .b6-deliverable-card:nth-child(even) .b5-mockup-box {
+        order: 0;
+      }
+      .b8-recap-box {
+        padding: 26px 20px;
+      }
+      .b8-item-row {
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+      .b8-item-row .item-left {
+        min-width: 0;
+      }
+      .b8-item-row .item-price {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .offer-main-price {
+        font-size: 2rem;
+      }
+      .offer-cash-price {
+        font-size: 1rem;
       }
       .b12-options-wrap {
         grid-template-columns: 1fr;
@@ -1539,7 +1638,6 @@
       <!-- Pré-título / Eyebrow -->
       <div class="reveal">
         <div class="b1-eyebrow">
-          <i class="fa-solid fa-triangle-exclamation"></i>
           <span>O que as Imobiliárias não contam...</span>
         </div>
       </div>
@@ -1675,7 +1773,7 @@
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
-          <h4>Reduzir o risco de inadimplência a zero</h4>
+          <h4>Reduzir o risco de inadimplência</h4>
           <p>Protocolos práticos de segurança e cobrança rápida para nunca acumular dívidas.</p>
         </div>
 
@@ -1687,7 +1785,7 @@
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-sack-dollar"></i></div>
-          <h4>Receber seus aluguéis todo mês em paz</h4>
+          <h4>Receber seus aluguéis em dia todo mês</h4>
           <p>Transforme seu imóvel em uma renda verdadeiramente segura, passiva e previsível.</p>
         </div>
 
@@ -1715,7 +1813,7 @@
         <!-- Entregável 1: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>1. O que conferir Antes de Entregar as Chaves</h3>
+            <h3>O que conferir Antes de Entregar as Chaves</h3>
             <p>
               Nunca mais fique perdido na hora de entregar as chaves! Tenha em mãos um protocolo prático com os cuidados indispensáveis, documentos e conferências que precisam estar em ordem antes de colocar um inquilino no seu imóvel.
             </p>
@@ -1728,7 +1826,7 @@
         <!-- Entregável 2: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-2">
           <div class="b5-card-info">
-            <h3>2. Acesso Imediato à Biblioteca do Raio-X da Locação — 21 Perguntas Essenciais</h3>
+            <h3>Acesso Imediato à Biblioteca do Raio-X da Locação — 21 Perguntas Essenciais</h3>
             <p>
               Acesso imediato das 21 perguntas essenciais que todo proprietário deveria fazer antes de alugar seu imóvel. Identifique riscos escondidos, saiba o que exigir e descubra o que sua imobiliária precisa esclarecer antes de fechar o negócio.
             </p>
@@ -1741,20 +1839,20 @@
         <!-- Entregável 3: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-3">
           <div class="b5-card-info">
-            <h3>3. O Inquilino Certo</h3>
+            <h3>Inquilino Certo</h3>
             <p>
               Você vai aprender exatamente como avaliar um futuro inquilino antes de entregar seu patrimônio nas mãos dele. Descubra o que analisar além da renda, quais sinais de alerta observar e como identificar riscos que podem se transformar em meses de inadimplência e prejuízo.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <img src="assets/entregaveis/inquilino-certo.png" alt="O Inquilino Certo">
+            <img src="assets/entregaveis/inquilino-certo.png" alt="Inquilino Certo">
           </div>
         </div>
 
         <!-- Entregável 4: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>4. Mapa das Garantias Locatícias</h3>
+            <h3>Mapa das Garantias Locatícias</h3>
             <p>
               Pare de escolher garantias no escuro! Compare fiador, caução, seguro-fiança e outras modalidades. Entenda as vantagens e limitações de cada uma para proteger melhor sua renda em caso de inadimplência.
             </p>
@@ -1767,20 +1865,20 @@
         <!-- Entregável 5: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-2">
           <div class="b5-card-info">
-            <h3>5. As TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado</h3>
+            <h3>TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado</h3>
             <p>
               Conheça as TOP 10 cláusulas que não podem faltar no seu contrato de locação! Descubra os pontos essenciais para proteger seus direitos, evitar prejuízos e reduzir conflitos com danos ao imóvel, multas e desocupação antecipada.
             </p>
           </div>
           <div class="b5-mockup-box">
-            <img src="assets/entregaveis/top10-clausulas.png" alt="As TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado">
+            <img src="assets/entregaveis/top10-clausulas.png" alt="TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado">
           </div>
         </div>
 
         <!-- Entregável 6: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-3">
           <div class="b5-card-info">
-            <h3>6. Como Realizar o Checklist da Vistoria Segura</h3>
+            <h3>Como Realizar o Checklist da Vistoria Segura</h3>
             <p>
               Aprenda exatamente como realizar uma vistoria completa e segura do seu imóvel! Descubra o que conferir, fotografar e documentar na entrada e na saída do inquilino, evitando falhas que podem gerar discussões e prejuízos ao seu patrimônio.
             </p>
@@ -1793,7 +1891,7 @@
         <!-- Entregável 7: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>7. Manual do Aluguel Seguro</h3>
+            <h3>Manual do Aluguel Seguro</h3>
             <p>
               Tenha em mãos um verdadeiro guia para proteger seu patrimônio! Um passo a passo simples e organizado, da escolha do inquilino à devolução das chaves, para acompanhar sua locação com confiança, mesmo sem entender nada de aluguel.
             </p>
@@ -1825,15 +1923,13 @@
         
         <div class="b6-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>Passo a Passo da Ficha Inteligente de Análise do Inquilino</h3>
+            <h3>O Passo a Passo da Ficha Inteligente de Análise do Inquilino</h3>
             <p>
               Uma ficha preenchível indispensável para organizar informações do candidato, conferir documentos, registrar referências e sinalizar pontos de atenção antes de aprovar a locação.
             </p>
           </div>
           <div class="b6-mockup-box-white">
-            <i class="fa-solid fa-file-invoice"></i>
-            <div class="mockup-label">Ficha Inteligente de Análise do Inquilino</div>
-            <span class="mockup-subtext">[ Imagens serão colocadas depois ]</span>
+            <img src="assets/entregaveis/ficha-analise-inquilino.png" alt="Ficha de Análise do Inquilino">
           </div>
         </div>
 
@@ -1883,15 +1979,14 @@
         </div>
 
         <div class="b7-image-box">
-          <i class="fa-solid fa-shield-halved"></i>
-          <div class="img-label">Proteção total para o seu patrimônio imobiliário</div>
-          <span style="font-size: 0.8rem; color: #64748b; margin-top: 6px;">[ Imagens serão colocadas depois ]</span>
+          <img src="assets/mockup-completo.jpg" alt="Mockup completo do material O Segredo do Aluguel Seguro">
+          <div class="img-label">Todo o material em um só lugar</div>
         </div>
       </div>
 
       <div class="reveal">
         <p class="b7-footer-text">
-          Enfim... se você quer proteger seu patrimônio, evitar erros que podem custar caro e aprender o que fazer, conferir e exigir antes, durante e depois da locação, os 7 Segredos do Aluguel Seguro são para você!
+          Enfim... se você quer proteger seu patrimônio, evitar erros que podem custar caro e aprender o que fazer, conferir e exigir antes, durante e depois da locação. O Segredo do Aluguel Seguro é para você!
         </p>
         <p style="margin-top: 14px; font-weight: 700; color: var(--navy-text);">
           Então, toque no botão abaixo e receba agora o seu acesso!
@@ -1940,7 +2035,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>O Inquilino Certo</span>
+            <span>Inquilino Certo</span>
           </div>
           <div class="item-price">R$ 47,00</div>
         </div>
@@ -1956,7 +2051,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>As TOP 10 Cláusulas do Contrato</span>
+            <span>TOP 10 Cláusulas do Contrato</span>
           </div>
           <div class="item-price">R$ 57,00</div>
         </div>
@@ -2003,9 +2098,8 @@
       <div class="offer-box-layout reveal-scale">
         
         <div class="offer-mockup-left">
-          <i class="fa-solid fa-boxes-stacked"></i>
+          <img src="assets/mockup-completo.jpg" alt="Mockup completo O Segredo do Aluguel Seguro + Bônus">
           <div class="mockup-title">Mockup Completo O Segredo do Aluguel Seguro + Bônus</div>
-          <span style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">[ Imagens serão colocadas depois ]</span>
         </div>
 
         <div class="offer-pricing-right">
@@ -2015,8 +2109,8 @@
           </div>
 
           <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
-          <div class="offer-main-price">12x de 9,97</div>
-          <p class="offer-cash-price">ou 97,00 à vista</p>
+          <div class="offer-main-price">12x de R$ 9,97</div>
+          <p class="offer-cash-price">ou R$ 97,00 à vista</p>
 
           <a href="#" class="btn-buy-now">
             <span>QUERO MEU ALUGUEL SEGURO</span>
@@ -2099,9 +2193,9 @@
           <div class="b10-step-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
-          <h3 class="b10-step-title">FAÇA SUA COMPRA</h3>
+          <h3 class="b10-step-title">ACESSE SEU E-MAIL</h3>
           <p class="b10-step-desc">
-            Assim que finalizar sua compra, você vai receber seu acesso no email.
+            Assim que finalizar a compra, você vai receber seu acesso no e-mail.
           </p>
         </div>
 
@@ -2109,9 +2203,9 @@
           <div class="b10-step-icon">
             <i class="fa-solid fa-cloud-arrow-down"></i>
           </div>
-          <h3 class="b10-step-title">BAIXE TODO O MATERIAL</h3>
+          <h3 class="b10-step-title">ACESSO AO PRODUTO</h3>
           <p class="b10-step-desc">
-            Você vai receber todos os entregáveis junto com os bônus imediatamente.
+            Você vai receber todos os entregáveis imediatamente.
           </p>
         </div>
 
@@ -2119,9 +2213,9 @@
           <div class="b10-step-icon">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h3 class="b10-step-title">APLIQUE E TENHA RESULTADOS</h3>
+          <h3 class="b10-step-title">TUDO PRONTO!</h3>
           <p class="b10-step-desc">
-            Basta seguir o passo a passo validado para blindar seus aluguéis e ter paz.
+            Agora é só acessar O Segredo do Aluguel Seguro e aproveitar todo o conteúdo preparado para você.
           </p>
         </div>
 
@@ -2143,16 +2237,15 @@
       <div class="b11-layout">
         
         <div class="b11-info reveal">
-          <h2>SEU NOME</h2>
-          <h4>Criador do (NOME DO SEU PRODUTO)</h4>
+          <h2>CLAUDIA PRADO</h2>
+          <h4>Especialista em Mercado e Gestão Imobiliária | CRECI 79.438</h4>
           <p>
-            BREVE DESCRIÇÃO SOBRE VOCÊ. Conte aqui a sua trajetória, os resultados obtidos, sua experiência no mercado e por que você desenvolveu este método exclusivo.
+            Empresária do mercado imobiliário, com mais de 18 anos de atuação especializada no setor de locação. Ao longo dessa trajetória, acompanhou mais de 5 mil pessoas em processos de locação, envolvendo proprietários, inquilinos e investidores, com segurança, organização e resultados. Desenvolveu um método prático, baseado na experiência real do dia a dia, para ajudar proprietários a alugar seu imóvel com muito mais segurança, rentabilidade e tranquilidade.
           </p>
         </div>
 
         <div class="b11-expert-box reveal-scale">
-          <i class="fa-solid fa-user-tie"></i>
-          <div class="expert-label">Imagem do expert!</div>
+          <img src="assets/autoridade-claudia.png" alt="Cláudia Prado, Especialista em Mercado e Gestão Imobiliária">
         </div>
 
       </div>
@@ -2171,25 +2264,23 @@
     <div class="container">
       
       <h2 class="b12-headline reveal">
-        Agora você tem duas opções:
+        Agora você tem duas escolhas:
       </h2>
 
       <div class="b12-options-wrap">
         
-        <div class="b12-option-card op-red reveal delay-1">
-          <div class="op-icon">
-            <i class="fa-solid fa-circle-xmark"></i>
-          </div>
-          <h3>Opção 1:</h3>
-          <p>Continuar sofrendo com {dor da persona}</p>
+        <div class="b12-option-card reveal delay-1">
+          <span class="b12-option-tag">Opção 1</span>
+          <h3>Continuar alugando seu imóvel sem o método seguro.</h3>
+          <p>Correr o risco de inadimplência.</p>
+          <p>Ter problemas na vistoria e na devolução.</p>
+          <p>Gastar tempo e dinheiro com imprevistos.</p>
         </div>
 
-        <div class="b12-option-card op-green reveal delay-2">
-          <div class="op-icon">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <h3>Opção 2:</h3>
-          <p>Tomar a decisão certa e colher {resultado esperado do produto}</p>
+        <div class="b12-option-card reveal delay-2">
+          <span class="b12-option-tag">Opção 2</span>
+          <h3>Adquirir agora O Segredo do Aluguel Seguro</h3>
+          <p>Investir apenas R$ 97,00 e finalmente blindar suas próximas locações, com mais segurança, tranquilidade e sem imprevistos.</p>
         </div>
 
       </div>
@@ -2197,7 +2288,7 @@
       <div class="b12-statements reveal">
         <p class="b12-lead">Eu sei (e você também sabe): a opção 2 é a mais inteligente.</p>
         <p class="b12-action-text">
-          Então clique no botão abaixo e acesse agora mesmo o <strong>(NOME DO PRODUTO)</strong>
+          Então clique no botão abaixo e acesse agora mesmo <strong>O Segredo do Aluguel Seguro</strong>
         </p>
       </div>
 
@@ -2217,9 +2308,8 @@
       <div class="offer-box-layout reveal-scale">
         
         <div class="offer-mockup-left">
-          <i class="fa-solid fa-boxes-stacked"></i>
+          <img src="assets/mockup-completo.jpg" alt="Mockup completo O Segredo do Aluguel Seguro + Bônus">
           <div class="mockup-title">Mockup Completo O Segredo do Aluguel Seguro + Bônus</div>
-          <span style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">[ Imagens serão colocadas depois ]</span>
         </div>
 
         <div class="offer-pricing-right">
@@ -2229,8 +2319,8 @@
           </div>
 
           <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
-          <div class="offer-main-price">12x de 9,97</div>
-          <p class="offer-cash-price">ou 97,00 à vista</p>
+          <div class="offer-main-price">12x de R$ 9,97</div>
+          <p class="offer-cash-price">ou R$ 97,00 à vista</p>
 
           <a href="#" class="btn-buy-now">
             <span>QUERO MEU ALUGUEL SEGURO</span>
@@ -2311,51 +2401,51 @@
         
         <div class="b14-faq-item faq-open reveal delay-1">
           <div class="b14-faq-question">
-            <span>Como vou receber o acesso ao material?</span>
+            <span>Qual é a forma de pagamento?</span>
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="b14-faq-answer">
-            Assim que seu pagamento for confirmado, você receberá imediatamente um e-mail com os dados de acesso para baixar todos os arquivos, templates e bônus.
+            Você pode fazer o pagamento pelo PIX ou cartão de crédito.
           </div>
         </div>
 
         <div class="b14-faq-item reveal delay-2">
           <div class="b14-faq-question">
-            <span>Por quanto tempo terei acesso?</span>
+            <span>O pagamento é seguro?</span>
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="b14-faq-answer">
-            O seu acesso é vitalício. Você poderá baixar os arquivos para o seu computador, celular ou tablet e utilizá-los quantas vezes quiser.
+            Sim, o pagamento é 100% seguro, onde utilizamos uma das maiores plataformas de vendas do mundo, a Hotmart.
           </div>
         </div>
 
         <div class="b14-faq-item reveal delay-3">
           <div class="b14-faq-question">
-            <span>Preciso de algum conhecimento avançado para aplicar?</span>
+            <span>Funciona pra mim?</span>
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="b14-faq-answer">
-            Não! O método foi desenvolvido de forma 100% prática e direta ao ponto, para que qualquer pessoa consiga aplicar imediatamente.
+            Sim, O Segredo do Aluguel Seguro é para qualquer pessoa que tem imóvel próprio e gostaria de alugar de forma segura.
           </div>
         </div>
 
         <div class="b14-faq-item reveal delay-4">
           <div class="b14-faq-question">
-            <span>Quais são as formas de pagamento?</span>
+            <span>Como vou acessar O Segredo do Aluguel Seguro?</span>
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="b14-faq-answer">
-            Você pode pagar à vista no PIX com aprovação instantânea, ou parcelar no cartão de crédito em até 9 vezes.
+            Assim que o seu pagamento for concluído, enviaremos um e-mail com todos os dados de login para você acessar o produto junto com todos os bônus.
           </div>
         </div>
 
         <div class="b14-faq-item reveal delay-5">
           <div class="b14-faq-question">
-            <span>E se eu não gostar do conteúdo?</span>
+            <span>Por quanto tempo tenho acesso?</span>
             <i class="fa-solid fa-chevron-down arrow"></i>
           </div>
           <div class="b14-faq-answer">
-            Você tem 7 dias de garantia incondicional. Se não ficar satisfeito, devolvemos 100% do seu dinheiro sem qualquer burocracia.
+            Você terá acesso ao O Segredo do Aluguel Seguro pelo período de um ano.
           </div>
         </div>
 
@@ -2375,11 +2465,19 @@
     <div class="container">
       
       <p class="b15-links">
-        <a href="#">TERMOS DE USO</a> E <a href="#">POLÍTICA DE PRIVACIDADE</a> | DISCLOSURE Copyright © (Nome do Autor/Empresa) - (Nome da Marca/Negócio) - (2026)
+        <a href="#">TERMOS DE USO</a> E <a href="#">POLÍTICA DE PRIVACIDADE</a>
+      </p>
+
+      <p class="b15-contact">
+        Tem dúvidas? Entre em contato: <a href="mailto:contato@primaleduc.com.br">contato@primaleduc.com.br</a>
       </p>
 
       <p class="b15-disclaimer">
         Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. A compra desse material não garante nenhum tipo de resultado. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais de alunos.
+      </p>
+
+      <p class="b15-copyright">
+        Copyright © 2026 Todos os Direitos Reservados.
       </p>
 
     </div>
