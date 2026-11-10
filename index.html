@@ -191,11 +191,15 @@
       border-radius: 2px;
       width: 0;
       transform: translateY(-50%);
-      animation: strikeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      opacity: 0;
+    }
+    .active .price-old-wrap .strike-line {
+      animation: strikeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
     }
     .price-old-wrap.re-striking .strike-line {
       animation: none;
       width: 0;
+      opacity: 0;
     }
 
     /* Destaques Tipográficos */
@@ -970,7 +974,7 @@
     }
     .b8-item-row .item-price {
       font-weight: 800;
-      color: var(--gold-light);
+      color: #ffffff;
       letter-spacing: 0.5px;
     }
 
@@ -1305,7 +1309,8 @@
     }
     .b11-expert-box img {
       width: 100%;
-      max-width: 760px;
+      max-width: 560px;
+      max-height: 720px;
       height: auto;
       object-fit: contain;
       display: block;
@@ -1754,39 +1759,39 @@
       <div class="b4-grid reveal delay-1">
         
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-file-shield"></i></div>
-          <h4>Blindar o seu contrato de locação</h4>
-          <p>Aprender as cláusulas essenciais que eliminam brechas perigosas para o proprietário.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-key"></i></div>
+          <h4>Preparar melhor a locação antes de entregar as chaves</h4>
+          <p>Organize os principais cuidados, documentos e conferências para começar com mais clareza.</p>
         </div>
 
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-clipboard-check"></i></div>
-          <h4>Cobrar vistorias blindadas e incontestáveis</h4>
-          <p>Saber o que conferir para que o inquilino entregue o imóvel do jeito exato que recebeu.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-user-check"></i></div>
+          <h4>Analisar melhor as informações do futuro inquilino</h4>
+          <p>Saiba o que observar e reconheça pontos que merecem atenção antes de avançar com a locação.</p>
         </div>
 
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-user-shield"></i></div>
-          <h4>Identificar inquilinos problemáticos antes</h4>
-          <p>Reconhecer sinais de alerta e riscos cadastrais antes de assinar qualquer contrato.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Entender as opções de garantia locatícia</h4>
+          <p>Compare fiador, caução, seguro fiança e título de capitalização e conheça pontos importantes de cada modalidade.</p>
         </div>
 
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
-          <h4>Reduzir o risco de inadimplência</h4>
-          <p>Protocolos práticos de segurança e cobrança rápida para nunca acumular dívidas.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-file-contract"></i></div>
+          <h4>Identificar pontos de atenção no contrato</h4>
+          <p>Conheça cláusulas importantes e saiba quais dúvidas esclarecer antes de assinar.</p>
         </div>
 
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-handshake"></i></div>
-          <h4>Saber exatamente o que cobrar da imobiliária</h4>
-          <p>Tenha autoridade para fiscalizar sua administradora e exigir a postura correta.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-camera"></i></div>
+          <h4>Documentar melhor a entrada e a saída do imóvel</h4>
+          <p>Entenda o que conferir e registrar nas vistorias para manter um histórico mais organizado.</p>
         </div>
 
         <div class="b4-benefit-card">
-          <div class="b4-icon-circle"><i class="fa-solid fa-sack-dollar"></i></div>
-          <h4>Receber seus aluguéis em dia todo mês</h4>
-          <p>Transforme seu imóvel em uma renda verdadeiramente segura, passiva e previsível.</p>
+          <div class="b4-icon-circle"><i class="fa-solid fa-building"></i></div>
+          <h4>Acompanhar a locação e a imobiliária com mais clareza</h4>
+          <p>Saiba o que perguntar, acompanhar e cobrar durante as etapas da locação.</p>
         </div>
 
       </div>
@@ -2021,7 +2026,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Roteiro da Entrega das Chaves</span>
           </div>
-          <div class="item-price">R$ 57,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 57,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2029,7 +2034,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Raio-X da Locação</span>
           </div>
-          <div class="item-price">R$ 47,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 47,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2037,7 +2042,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Inquilino Certo</span>
           </div>
-          <div class="item-price">R$ 47,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 47,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2045,7 +2050,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Mapa das Garantias Locatícias</span>
           </div>
-          <div class="item-price">R$ 37,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 37,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2053,7 +2058,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>TOP 10 Cláusulas do Contrato</span>
           </div>
-          <div class="item-price">R$ 57,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 57,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2061,7 +2066,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Checklist da Vistoria Segura</span>
           </div>
-          <div class="item-price">R$ 37,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 37,00</span></div>
         </div>
 
         <div class="b8-item-row">
@@ -2069,13 +2074,13 @@
             <i class="fa-solid fa-circle-check"></i>
             <span>Manual do Aluguel Seguro</span>
           </div>
-          <div class="item-price">R$ 73,00</div>
+          <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 73,00</span></div>
         </div>
       </div>
 
       <div class="reveal">
         <h3 class="b8-total-anchor">
-          TUDO ISSO DEVERIA CUSTAR: <span style="text-decoration: line-through; opacity: 0.85;">R$ 355,00</span>
+          TUDO ISSO DEVERIA CUSTAR: <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span>
         </h3>
         <p class="b8-anchor-sub">
           Mas hoje você tem acesso ao <strong>O Segredo do Aluguel Seguro</strong> junto com o bônus por apenas:
@@ -2108,7 +2113,7 @@
             O Segredo do Aluguel Seguro
           </div>
 
-          <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
+          <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
           <div class="offer-main-price">12x de R$ 9,97</div>
           <p class="offer-cash-price">ou R$ 97,00 à vista</p>
 
@@ -2237,15 +2242,15 @@
       <div class="b11-layout">
         
         <div class="b11-info reveal">
-          <h2>CLAUDIA PRADO</h2>
-          <h4>Especialista em Mercado e Gestão Imobiliária | CRECI 79.438</h4>
+          <h2>Quem está por trás de O Segredo do Aluguel Seguro?</h2>
+          <h4>Cláudia Prado — Especialista em Mercado e Gestão Imobiliária | CRECI 79.438</h4>
           <p>
-            Empresária do mercado imobiliário, com mais de 18 anos de atuação especializada no setor de locação. Ao longo dessa trajetória, acompanhou mais de 5 mil pessoas em processos de locação, envolvendo proprietários, inquilinos e investidores, com segurança, organização e resultados. Desenvolveu um método prático, baseado na experiência real do dia a dia, para ajudar proprietários a alugar seu imóvel com muito mais segurança, rentabilidade e tranquilidade.
+            Empresária do mercado imobiliário, com mais de 18 anos de atuação especializada em locação. Ao longo da trajetória, acompanhou mais de 5 mil pessoas em processos de locação, envolvendo proprietários, inquilinos e investidores. Desenvolveu um método prático para ajudar proprietários a alugar com mais segurança, rentabilidade e tranquilidade.
           </p>
         </div>
 
         <div class="b11-expert-box reveal-scale">
-          <img src="assets/autoridade-claudia.png" alt="Cláudia Prado, Especialista em Mercado e Gestão Imobiliária">
+          <img src="assets/autoridade-claudia-v2.png" alt="Cláudia Prado, Especialista em Mercado e Gestão Imobiliária">
         </div>
 
       </div>
@@ -2318,7 +2323,7 @@
             O Segredo do Aluguel Seguro
           </div>
 
-          <p class="offer-price-lead" style="text-decoration: line-through; color: #94a3b8; font-size: 1.05rem;">De R$ 355,00 por apenas:</p>
+          <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
           <div class="offer-main-price">12x de R$ 9,97</div>
           <p class="offer-cash-price">ou R$ 97,00 à vista</p>
 
@@ -2436,6 +2441,16 @@
           </div>
           <div class="b14-faq-answer">
             Assim que o seu pagamento for concluído, enviaremos um e-mail com todos os dados de login para você acessar o produto junto com todos os bônus.
+          </div>
+        </div>
+
+        <div class="b14-faq-item reveal delay-5">
+          <div class="b14-faq-question">
+            <span>Em que formato recebo o material e quanto tempo leva para ler?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+          <div class="b14-faq-answer">
+            O material é digital, em PDF, e a leitura estimada é de 30 a 45 minutos.
           </div>
         </div>
 
