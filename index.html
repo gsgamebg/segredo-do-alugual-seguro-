@@ -300,6 +300,10 @@
       margin-bottom: 24px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
+    .b1-eyebrow .b1-danger-red {
+      color: #ef4444;
+      font-weight: 800;
+    }
 
     .b1-header-content {
       max-width: 880px;
@@ -334,6 +338,25 @@
     .b1-main-title .b1-subtitle {
       display: block;
       margin-top: 14px;
+    }
+
+    .b1-sub-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      background: rgba(22, 163, 74, 0.16);
+      border: 1px solid rgba(34, 197, 94, 0.55);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .b1-sub-chip i {
+      color: #4ade80;
+      font-size: 1.1rem;
     }
 
     .b1-headline {
@@ -537,6 +560,9 @@
       font-size: 1rem;
       color: #fecaca;
       line-height: 1.55;
+    }
+    .b3-alert-content strong {
+      color: var(--gold-light);
     }
     .gold-alert-tag {
       color: var(--gold-light);
@@ -1007,8 +1033,13 @@
     }
 
     .offer-attention-lead {
-      max-width: 780px;
+      width: fit-content;
+      max-width: 92%;
       margin: 0 auto 36px auto;
+      padding: 16px 24px;
+      background: rgba(205, 163, 53, 0.16);
+      border: 1px solid rgba(205, 163, 53, 0.55);
+      border-radius: var(--radius-md);
       font-size: clamp(1.2rem, 2.4vw, 1.7rem);
       font-weight: 800;
       color: var(--navy-text);
@@ -1378,23 +1409,34 @@
       position: relative;
       z-index: 1;
     }
+    .b12-option-card.is-risk {
+      border-color: #dc2626;
+      box-shadow: 0 14px 34px rgba(220, 38, 38, 0.28);
+    }
+    .b12-option-card.is-risk::before {
+      background: linear-gradient(90deg, #dc2626, #f87171);
+      box-shadow: 0 0 18px rgba(220, 38, 38, 0.4);
+    }
+    .b12-option-card.is-risk h3 {
+      color: #b91c1c;
+    }
     .b12-option-card.is-recommended {
-      border-color: var(--gold-primary);
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), var(--shadow-hover-gold);
+      border-color: #16a34a;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+      box-shadow: 0 14px 34px rgba(22, 163, 74, 0.28);
     }
     .b12-option-card.is-recommended::before {
-      background: var(--gold-gradient);
-      box-shadow: 0 0 18px rgba(205, 163, 53, 0.45);
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      box-shadow: 0 0 18px rgba(22, 163, 74, 0.4);
     }
-    .b12-option-card:not(.is-recommended) .b12-option-tag {
-      color: var(--gray-muted);
-      background: rgba(148, 163, 184, 0.12);
-      border-color: rgba(148, 163, 184, 0.4);
+    .b12-option-card.is-risk .b12-option-tag {
+      color: #ffffff;
+      background: #dc2626;
+      border-color: transparent;
     }
     .b12-option-card.is-recommended .b12-option-tag {
-      color: var(--navy-deep);
-      background: var(--gold-gradient);
+      color: #ffffff;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
       border-color: transparent;
     }
     .b12-option-card:hover {
@@ -1404,7 +1446,9 @@
     }
 
     .b12-option-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.8px;
@@ -1451,6 +1495,10 @@
     .b12-action-text {
       font-size: 1.05rem;
       color: #cbd5e1;
+    }
+    .b12-gold-text {
+      color: var(--gold-light);
+      font-weight: 800;
     }
 
     /* ========================================================
@@ -1671,11 +1719,7 @@
   <!-- ========================================================
        BLOCO 1 - VENDER SOZINHO (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 1 - VENDER SOZINHO</span>
-  </div>
-
-  <section class="section-block-1 section-navy">
+<section class="section-block-1 section-navy">
     <div class="container">
       
       <!-- Imagem da sua Logo -->
@@ -1690,16 +1734,19 @@
       <!-- Pré-título / Eyebrow -->
       <div class="reveal">
         <div class="b1-eyebrow">
-          <span>O que as Imobiliárias não contam...</span>
+          <span>Tem medo de alugar seu imóvel e acabar levando <span class="b1-danger-red">PREJUÍZO?</span></span>
         </div>
       </div>
 
       <!-- Headline Principal e Subtítulo Harmonizados -->
       <div class="b1-header-content reveal">
         <h1 class="b1-main-title">
-          Descubra os <strong class="gold-highlight-light">7 Segredos</strong> que as Imobiliárias utilizam para <strong class="gold-highlight-light">reduzir os riscos de uma locação</strong>
-          <span class="b1-main-title"> <strong class="gold-highlight-light">Aprenda como proteger</strong> melhor seu imóvel, mesmo sem entender <strong class="gold-highlight-light">nada de aluguel</strong>, com um guia rápido e fácil — sem precisar virar especialista!</span>
+         Descubra como proteger seu imóvel contra calotes, danos e prejuízos usando os <strong class="gold-highlight-light">7 Segredos do Aluguel Seguro</strong> que as imobiliárias utilizam.
         </h1>
+        <span class="b1-sub-chip">
+          <i class="fa-solid fa-circle-check"></i>
+          Sem precisar entender de contratos ou leis de aluguel
+        </span>
       </div>
 
       <!-- Comparativo Antes e Depois (Nova Imagem Oficial) -->
@@ -1713,14 +1760,13 @@
   <!-- ========================================================
        BLOCO 3 - RUMINAÇÃO (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 3 - RUMINAÇÃO</span>
-  </div>
-
-  <section class="section-block-3 section-white">
+<section class="section-block-3 section-white">
     <div class="container">
       
-      <p class="b3-pre-title reveal">Fala a verdade...</p>
+         
+      <p class="b3-pre-title reveal">Fala a verdade... </p>
+<br>
+<br>
 
       <h2 class="b3-headline reveal">
         Você alugou o seu imóvel para ganhar dinheiro, mas agora vive com medo de ter <span class="b3-danger-word">PREJUÍZO!</span>
@@ -1736,10 +1782,10 @@
           
           <div class="b3-doubt-column">
             <div class="b3-doubt-card">
-              <div class="doubt-text">"E se o inquilino parar de pagar e não quiser sair?"</div>
+              <div class="doubt-text">E se o inquilino parar de pagar e não quiser sair?</div>
             </div>
             <div class="b3-doubt-card">
-              <div class="doubt-text">"E se ele destruir a minha casa e não quiser e nem ter como pagar?"</div>
+              <div class="doubt-text">E se ele destruir a minha casa e não quiser e nem ter como pagar?</div>
             </div>
           </div>
 
@@ -1750,10 +1796,10 @@
 
           <div class="b3-doubt-column">
             <div class="b3-doubt-card">
-              <div class="doubt-text">"E se ele destruir meu imóvel e eu ficar com o prejuízo?"</div>
+              <div class="doubt-text">E se ele destruir meu imóvel e eu ficar com o prejuízo?</div>
             </div>
             <div class="b3-doubt-card">
-              <div class="doubt-text">"E se eu estiver fazendo tudo errado e nem souber?"</div>
+              <div class="doubt-text">E se eu estiver fazendo tudo errado e nem souber?</div>
             </div>
           </div>
 
@@ -1778,8 +1824,7 @@
         <div class="b3-alert-content">
           <h3>Estou certo?</h3>
           <p>
-            Mas e se você pudesse aprender o que realmente precisa conferir em uma locação, mesmo sem entender nada de aluguel, com um guia simples e prático? 
-            <span class="gold-alert-tag">Isso faria diferença pra você?</span>
+            Mas e se você descobrisse, com <strong>Os 7 Segredos do Aluguel Seguro</strong>, o que realmente precisa fazer para evitar calotes, prejuízos e proteger seu imóvel? Imagine a tranquilidade de alugar sem medo! Isso faria diferença para você?
           </p>
         </div>
       </div>
@@ -1790,11 +1835,7 @@
   <!-- ========================================================
        BLOCO 4 - O QUE VOCÊ VAI RECEBER (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 4 - O QUE VOCÊ VAI RECEBER</span>
-  </div>
-
-  <section class="section-block-4 section-navy">
+<section class="section-block-4 section-navy">
     <div class="container">
       
       <div class="b4-badge-banner reveal">
@@ -1805,38 +1846,38 @@
         
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-key"></i></div>
-          <h4>Preparar melhor a locação antes de entregar as chaves</h4>
-          <p>Organize os principais cuidados, documentos e conferências para começar com mais clareza.</p>
+          <h4>Evitar dores de cabeça</h4>
+          <p>E problemas na Justiça com o inquilino.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-user-check"></i></div>
-          <h4>Analisar melhor as informações do futuro inquilino</h4>
-          <p>Saiba o que observar e reconheça pontos que merecem atenção antes de avançar com a locação.</p>
+          <h4>Receber seu aluguel</h4>
+          <p>Sem precisar ficar correndo atrás do inquilino.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
-          <h4>Entender as opções de garantia locatícia</h4>
-          <p>Compare fiador, caução, seguro fiança e título de capitalização e conheça pontos importantes de cada modalidade.</p>
+          <h4>Proteger seu imóvel de prejuízos</h4>
+          <p>Danos e despesas inesperadas.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-file-contract"></i></div>
-          <h4>Identificar pontos de atenção no contrato</h4>
-          <p>Conheça cláusulas importantes e saiba quais dúvidas esclarecer antes de assinar.</p>
+          <h4>Alugar seu imóvel sem medo</h4>
+          <p>De colocar a pessoa errada lá dentro.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-camera"></i></div>
-          <h4>Documentar melhor a entrada e a saída do imóvel</h4>
-          <p>Entenda o que conferir e registrar nas vistorias para manter um histórico mais organizado.</p>
+          <h4>Parar de perder dinheiro</h4>
+          <p>Com erros que podem consumir meses de aluguel.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-building"></i></div>
-          <h4>Acompanhar a locação e a imobiliária com mais clareza</h4>
-          <p>Saiba o que perguntar, acompanhar e cobrar durante as etapas da locação.</p>
+          <h4>Ter tranquilidade para aproveitar sua renda</h4>
+          <p>Sem viver preocupado com o imóvel.</p>
         </div>
 
       </div>
@@ -1847,11 +1888,7 @@
   <!-- ========================================================
        BLOCO 5 - ENTREGÁVEIS (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 5 - ENTREGÁVEIS</span>
-  </div>
-
-  <section class="section-block-5 section-white">
+<section class="section-block-5 section-white">
     <div class="container">
       
       <h2 class="b5-headline reveal">
@@ -1959,11 +1996,7 @@
   <!-- ========================================================
        BLOCO 6 - BÔNUS (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 6 - BÔNUS</span>
-  </div>
-
-  <section class="section-block-6 section-navy">
+<section class="section-block-6 section-navy">
     <div class="container">
       
       <p class="b6-pre-title reveal">Ainda não acabou...</p>
@@ -1991,11 +2024,7 @@
   <!-- ========================================================
        BLOCO 7 - PARA QUEM SERVE (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 7 - PARA QUEM SERVE</span>
-  </div>
-
-  <section class="section-block-7 section-white">
+<section class="section-block-7 section-white">
     <div class="container">
       
       <h2 class="b7-headline reveal">
@@ -2052,11 +2081,7 @@
   <!-- ========================================================
        BLOCO 8 - RECAPITULANDO (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 8 - RECAPITULANDO</span>
-  </div>
-
-  <section class="section-block-8 section-navy">
+<section class="section-block-8 section-navy">
     <div class="container">
       
       <h2 class="b8-headline reveal">
@@ -2139,11 +2164,7 @@
   <!-- ========================================================
        BLOCO 9 - VALOR (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 9 - VALOR</span>
-  </div>
-
-  <section class="section-block-offer section-white" id="oferta-bloco9">
+<section class="section-block-offer section-white" id="oferta-bloco9">
     <div class="container">
       
       <p class="offer-attention-lead reveal">
@@ -2158,7 +2179,7 @@
 
         <div class="offer-pricing-right">
           <div class="offer-mini-logo-box">
-            <img src="assets/logo-dourado.png" alt="O Segredo do Aluguel Seguro">
+            <img src="assets/logo-dourado-casa-aluguel-seguro.png?v=1" alt="O Segredo do Aluguel Seguro">
           </div>
 
           <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
@@ -2229,11 +2250,7 @@
   <!-- ========================================================
        BLOCO 10 - COMO ACESSAR (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 10 - COMO ACESSAR</span>
-  </div>
-
-  <section class="section-block-10 section-navy">
+<section class="section-block-10 section-navy">
     <div class="container">
       
       <h2 class="b10-headline reveal">
@@ -2280,11 +2297,7 @@
   <!-- ========================================================
        BLOCO 11 - AUTORIDADE (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 11 - AUTORIDADE</span>
-  </div>
-
-  <section class="section-block-11 section-white">
+<section class="section-block-11 section-white">
     <div class="container">
       
       <div class="b11-layout">
@@ -2312,11 +2325,7 @@
   <!-- ========================================================
        BLOCO 12 - CONVERSA SÉRIA (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 12 - CONVERSA SÉRIA</span>
-  </div>
-
-  <section class="section-block-12 section-navy">
+<section class="section-block-12 section-navy">
     <div class="container">
       
       <h2 class="b12-headline reveal">
@@ -2325,16 +2334,14 @@
 
       <div class="b12-options-wrap">
         
-        <div class="b12-option-card reveal delay-1">
-          <span class="b12-option-tag">Opção 1</span>
+        <div class="b12-option-card is-risk reveal delay-1">
+          <span class="b12-option-tag"><i class="fa-solid fa-xmark"></i> Opção 1</span>
           <h3>Continuar alugando seu imóvel sem o método seguro.</h3>
-          <p>Correr o risco de inadimplência.</p>
-          <p>Ter problemas na vistoria e na devolução.</p>
-          <p>Gastar tempo e dinheiro com imprevistos.</p>
+          <p>Correr o risco de inadimplência, ter problemas na vistoria e na devolução e gastar tempo e dinheiro com imprevistos.</p>
         </div>
 
         <div class="b12-option-card is-recommended reveal delay-2">
-          <span class="b12-option-tag">Opção 2</span>
+          <span class="b12-option-tag"><i class="fa-solid fa-circle-check"></i> Opção 2</span>
           <h3>Adquirir agora O Segredo do Aluguel Seguro</h3>
           <p><strong class="b12-price-highlight">Investir apenas R$ 97,00</strong> e finalmente blindar suas próximas locações, com mais segurança, tranquilidade e sem imprevistos.</p>
         </div>
@@ -2342,10 +2349,8 @@
       </div>
 
       <div class="b12-statements reveal">
-        <p class="b12-lead">Eu sei (e você também sabe): a opção 2 é a mais inteligente.</p>
-        <p class="b12-action-text">
-          Então clique no botão abaixo e acesse agora mesmo <strong>O Segredo do Aluguel Seguro</strong>
-        </p>
+        <p class="b12-lead">Eu sei, e você também sabe... <strong class="b12-gold-text">A opção 2 é a mais inteligente e é a que você mais precisa.</strong></p>
+        <p class="b12-action-text"><strong class="b12-gold-text">A opção 2 é a mais inteligente e é a que você mais precisa,</strong> então toque no botão abaixo e garanta seu acesso agora!</p>
       </div>
 
     </div>
@@ -2354,11 +2359,7 @@
   <!-- ========================================================
        BLOCO 13 - VALOR (BRANCO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 13 - VALOR</span>
-  </div>
-
-  <section class="section-block-offer section-white" id="oferta-bloco13">
+<section class="section-block-offer section-white" id="oferta-bloco13">
     <div class="container">
       
       <div class="offer-box-layout reveal-scale">
@@ -2369,7 +2370,7 @@
 
         <div class="offer-pricing-right">
           <div class="offer-mini-logo-box">
-            <img src="assets/logo-3d-aluguel-seguro.png?v=4" alt="O Segredo do Aluguel Seguro">
+            <img src="assets/logo-dourado-casa-aluguel-seguro.png?v=1" alt="O Segredo do Aluguel Seguro">
           </div>
 
           <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
@@ -2440,11 +2441,7 @@
   <!-- ========================================================
        BLOCO 14 - FAQ (AZUL MARINHO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 14 - FAQ</span>
-  </div>
-
-  <section class="section-block-14 section-navy">
+<section class="section-block-14 section-navy">
     <div class="container">
       
       <h2 class="b14-headline reveal">
@@ -2521,11 +2518,7 @@
   <!-- ========================================================
        BLOCO 15 - RODAPÉ (AZUL MARINHO / PRETO)
        ======================================================== -->
-  <div class="block-indicator-bar">
-    <span>BLOCO 15 - RODAPÉ</span>
-  </div>
-
-  <footer class="section-block-15">
+<footer class="section-block-15">
     <div class="container">
       
       <p class="b15-links">
