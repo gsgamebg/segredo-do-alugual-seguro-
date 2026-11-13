@@ -252,8 +252,21 @@
        BLOCO 1 - VENDER SOZINHO (AZUL MARINHO)
        ======================================================== */
     .section-block-1 {
-      padding: 60px 0 85px 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: clamp(32px, 6vw, 64px) 0;
       text-align: center;
+    }
+
+    .section-block-1.section-navy {
+      background: radial-gradient(ellipse at top, #173e70 0%, #0a2346 52%, #06152b 100%);
+      color: var(--white-pure);
+    }
+
+    .section-block-1 > .container {
+      max-width: none;
     }
 
     .b1-logo-box {
@@ -285,24 +298,18 @@
     }
 
     .b1-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(205, 163, 53, 0.15);
-      border: 1px solid var(--gold-primary);
-      color: var(--gold-light);
-      padding: 8px 22px;
-      border-radius: 50px;
-      font-size: 0.95rem;
+      display: block;
+      background: #ffffff;
+      color: #000000;
+      padding: 14px 20px;
+      font-size: clamp(1rem, 2.2vw, 1.45rem);
       font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      margin: 0 -20px 28px;
     }
-    .b1-eyebrow .b1-danger-red {
-      color: #ef4444;
-      font-weight: 800;
+    .b1-eyebrow strong {
+      color: #b4232c;
+      font-size: 1.18em;
+      font-weight: 900;
     }
 
     .b1-header-content {
@@ -316,7 +323,7 @@
     .b1-main-title {
       font-size: clamp(1.9rem, 3.8vw, 2.75rem);
       font-weight: 800;
-      color: #ffffff;
+      color: var(--white-pure);
       line-height: 1.25;
       margin-bottom: 16px;
       letter-spacing: -0.5px;
@@ -345,9 +352,9 @@
       align-items: center;
       gap: 10px;
       margin-top: 20px;
-      background: rgba(22, 163, 74, 0.16);
-      border: 1px solid rgba(34, 197, 94, 0.55);
-      color: #ffffff;
+      background: #ffffff;
+      border: 1px solid #aabfd4;
+      color: var(--navy-text);
       padding: 10px 20px;
       border-radius: 50px;
       font-size: 1rem;
@@ -355,7 +362,7 @@
       line-height: 1.4;
     }
     .b1-sub-chip i {
-      color: #4ade80;
+      color: #157348;
       font-size: 1.1rem;
     }
 
@@ -398,7 +405,7 @@
        BLOCO 3 - RUMINAÇÃO (BRANCO)
        ======================================================== */
     .section-block-3 {
-      padding: 85px 0 100px 0;
+      padding: clamp(24px, 4vw, 40px) 0 clamp(24px, 3vw, 36px);
       text-align: center;
     }
 
@@ -575,7 +582,7 @@
        BLOCO 4 - O QUE VOCÊ VAI RECEBER / CARTILHA (AZUL MARINHO)
        ======================================================== */
     .section-block-4 {
-      padding: 90px 0 100px 0;
+      padding: clamp(24px, 3vw, 36px) 0 clamp(24px, 3vw, 36px);
       text-align: center;
     }
 
@@ -596,7 +603,7 @@
     .b4-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 0;
       max-width: 980px;
       margin: 0 auto;
     }
@@ -605,11 +612,11 @@
       background: linear-gradient(145deg, #0d2242 0%, #06152d 100%);
       border: 1px solid rgba(205, 163, 53, 0.4);
       border-radius: var(--radius-lg);
-      padding: 32px 22px;
+      padding: 14px;
       display: flex;
-      flex-direction: column;
+      gap: 10px;
       align-items: center;
-      text-align: center;
+      text-align: left;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
@@ -620,25 +627,21 @@
     }
 
     .b4-icon-circle {
-      width: 60px;
-      height: 60px;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: rgba(205, 163, 53, 0.15);
       border: 1px solid var(--gold-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 16px;
       color: var(--gold-light);
-      margin-bottom: 18px;
     }
 
-    .b4-benefit-card h4 {
-      font-size: 1.05rem;
-      font-weight: 800;
+    .b4-benefit-card strong {
       color: #ffffff;
-      margin-bottom: 10px;
-      line-height: 1.35;
     }
 
     .b4-benefit-card p {
@@ -651,7 +654,7 @@
        BLOCO 5 - ENTREGÁVEIS (BRANCO)
        ======================================================== */
     .section-block-5 {
-      padding: 90px 0 100px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -719,6 +722,16 @@
       line-height: 1.62;
     }
 
+    .b5-card-info .b5-card-topic {
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .b5-deliverable-card .b5-card-info:only-child {
+      grid-column: 1 / -1;
+    }
+
     .b5-mockup-box {
       background: transparent;
       border: none;
@@ -752,23 +765,32 @@
        BLOCO 6 - BÔNUS (AZUL MARINHO)
        ======================================================== */
     .section-block-6 {
-      padding: 85px 0 95px 0;
+      padding: 0 0 clamp(24px, 3vw, 36px);
       text-align: center;
     }
 
+    .b6-heading {
+      background: #000000;
+      padding: clamp(24px, 3vw, 36px) 16px 12px;
+      margin-bottom: 50px;
+    }
     .b6-pre-title {
-      font-size: 1.15rem;
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: var(--radius-md);
+      background: #172609;
+      border: 1px solid #b7ff00;
+      font-size: 0.9rem;
       font-weight: 800;
-      color: var(--gold-light);
+      color: #b7ff00;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 8px;
     }
     .b6-main-title {
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      font-size: clamp(1.15rem, 2.4vw, 1.65rem);
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 50px;
     }
 
     .b6-deliverable-card {
@@ -836,7 +858,7 @@
        BLOCO 7 - PARA QUEM SERVE (BRANCO)
        ======================================================== */
     .section-block-7 {
-      padding: 90px 0 100px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -958,7 +980,7 @@
        BLOCO 8 - RECAPITULANDO (AZUL MARINHO)
        ======================================================== */
     .section-block-8 {
-      padding: 85px 0 95px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -972,7 +994,7 @@
     }
 
     .b8-recap-box {
-      background: rgba(13, 34, 66, 0.8);
+      background: #ffffff;
       border: 1px solid rgba(205, 163, 53, 0.45);
       border-radius: var(--radius-lg);
       padding: 35px 40px;
@@ -989,7 +1011,7 @@
       padding: 12px 0;
       border-bottom: 1px dashed rgba(205, 163, 53, 0.4);
       font-size: 0.98rem;
-      color: #ffffff;
+      color: #000000;
     }
     .b8-item-row:last-child {
       border-bottom: none;
@@ -1005,8 +1027,15 @@
     }
     .b8-item-row .item-price {
       font-weight: 800;
-      color: #ffffff;
+      color: #000000;
       letter-spacing: 0.5px;
+    }
+    .b8-item-row .b8-free-label {
+      background: #000000;
+      color: #ffea00;
+      border-radius: var(--radius-md);
+      padding: 3px 8px;
+      font-weight: 800;
     }
 
     .b8-total-anchor {
@@ -1015,6 +1044,20 @@
       color: #ffffff;
       margin-bottom: 10px;
       text-transform: uppercase;
+    }
+    .section-block-8 .active .price-old-wrap .strike-line {
+      animation: recapStrike 3s ease-out infinite;
+    }
+    @keyframes recapStrike {
+      0% { width: 0; opacity: 0; }
+      20%, 100% { width: 100%; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .section-block-8 .active .price-old-wrap .strike-line {
+        animation: none;
+        width: 100%;
+        opacity: 1;
+      }
     }
     .b8-anchor-sub {
       font-size: 1.05rem;
@@ -1028,31 +1071,31 @@
        BLOCO 9 & 13 - VALOR / CHECKOUT (BRANCO)
        ======================================================== */
     .section-block-offer {
-      padding: 95px 0 105px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
+    #oferta-bloco9 {
+      padding-top: 0;
+    }
+
     .offer-attention-lead {
-      width: fit-content;
-      max-width: 92%;
       margin: 0 auto 36px auto;
       padding: 16px 24px;
-      background: rgba(205, 163, 53, 0.16);
-      border: 1px solid rgba(205, 163, 53, 0.55);
-      border-radius: var(--radius-md);
+      background: var(--navy-deep);
       font-size: clamp(1.2rem, 2.4vw, 1.7rem);
       font-weight: 800;
-      color: var(--navy-text);
+      color: #ffffff;
       line-height: 1.45;
     }
     .offer-attention-lead strong {
-      color: var(--gold-dark);
+      color: #ffea00;
       font-weight: 800;
     }
 
     .offer-box-layout {
       background: #ffffff;
-      border: 3px solid var(--gold-primary);
+      border: 2px solid var(--gold-primary);
       border-radius: var(--radius-xl);
       padding: 45px;
       display: grid;
@@ -1123,7 +1166,7 @@
     .offer-main-price {
       font-size: clamp(2.4rem, 4.5vw, 3.4rem);
       font-weight: 900;
-      color: #16a34a;
+      color: var(--navy-text);
       line-height: 1.1;
       margin-bottom: 4px;
     }
@@ -1140,7 +1183,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+      background: #15803d;
       color: #ffffff;
       font-weight: 800;
       font-size: 1.15rem;
@@ -1158,7 +1201,7 @@
     .btn-buy-now:hover {
       transform: translateY(-3px) scale(1.02) !important;
       box-shadow: 0 18px 38px rgba(22, 163, 74, 0.55) !important;
-      background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+      background: #166534;
       animation: none;
     }
 
@@ -1232,7 +1275,7 @@
        BLOCO 10 - COMO ACESSAR (AZUL MARINHO)
        ======================================================== */
     .section-block-10 {
-      padding: 85px 0 95px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -1301,7 +1344,7 @@
        BLOCO 11 - AUTORIDADE (BRANCO)
        ======================================================== */
     .section-block-11 {
-      padding: 90px 0 100px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
     }
 
     .b11-layout {
@@ -1362,7 +1405,7 @@
        BLOCO 12 - CONVERSA SÉRIA (AZUL MARINHO)
        ======================================================== */
     .section-block-12 {
-      padding: 85px 0 95px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -1458,7 +1501,25 @@
       border: 1px solid rgba(205, 163, 53, 0.45);
       border-radius: 50px;
       padding: 6px 14px;
+    }
+
+    .b12-option-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 16px;
+    }
+    .b12-option-emoji {
+      display: grid;
+      place-items: center;
+      width: clamp(52px, 10vw, 68px);
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      border-radius: 50%;
+      font-size: clamp(32px, 6vw, 42px);
+      line-height: 1;
+      background: #eeeeee;
     }
 
     .b12-option-card h3 {
@@ -1505,7 +1566,7 @@
        BLOCO 14 - FAQ (AZUL MARINHO)
        ======================================================== */
     .section-block-14 {
-      padding: 85px 0 95px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       text-align: center;
     }
 
@@ -1574,7 +1635,7 @@
        BLOCO 15 - RODAPÉ (AZUL MARINHO / PRETO)
        ======================================================== */
     .section-block-15 {
-      padding: 55px 0 45px 0;
+      padding: clamp(24px, 3vw, 36px) 0;
       background: #030814;
       color: #94a3b8;
       text-align: center;
@@ -1695,6 +1756,20 @@
     }
 
     @media (max-width: 600px) {
+      .b11-info h2 {
+        font-size: clamp(1.25rem, 5vw, 1.65rem);
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+      .b1-sub-chip {
+        font-size: clamp(0.625rem, 3.1vw, 0.8rem);
+        gap: 6px;
+        padding: 7px 8px;
+        white-space: nowrap;
+      }
+      .b1-sub-chip i {
+        font-size: 1em;
+      }
       .b1-headline {
         font-size: 1.4rem;
       }
@@ -1734,7 +1809,7 @@
       <!-- Pré-título / Eyebrow -->
       <div class="reveal">
         <div class="b1-eyebrow">
-          <span>Tem medo de alugar seu imóvel e acabar levando <span class="b1-danger-red">PREJUÍZO?</span></span>
+          <span>Tem medo de alugar seu imóvel e acabar levando <strong>PREJUÍZO?</strong></span>
         </div>
       </div>
 
@@ -1765,8 +1840,6 @@
       
          
       <p class="b3-pre-title reveal">Fala a verdade... </p>
-<br>
-<br>
 
       <h2 class="b3-headline reveal">
         Você alugou o seu imóvel para ganhar dinheiro, mas agora vive com medo de ter <span class="b3-danger-word">PREJUÍZO!</span>
@@ -1824,7 +1897,8 @@
         <div class="b3-alert-content">
           <h3>Estou certo?</h3>
           <p>
-            Mas e se você descobrisse, com <strong>Os 7 Segredos do Aluguel Seguro</strong>, o que realmente precisa fazer para evitar calotes, prejuízos e proteger seu imóvel? Imagine a tranquilidade de alugar sem medo! Isso faria diferença para você?
+            Mas e se você descobrisse, com <strong>Os 7 Segredos do Aluguel Seguro</strong>, o que realmente precisa fazer para evitar calotes, prejuízos e proteger seu imóvel? Imagine a tranquilidade de alugar sem medo!
+            <strong class="gold-alert-tag">Isso faria diferença para você?</strong>
           </p>
         </div>
       </div>
@@ -1846,38 +1920,32 @@
         
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-key"></i></div>
-          <h4>Evitar dores de cabeça</h4>
-          <p>E problemas na Justiça com o inquilino.</p>
+          <p><strong>Evitar dores de cabeça</strong> e problemas na Justiça com o inquilino.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-user-check"></i></div>
-          <h4>Receber seu aluguel</h4>
-          <p>Sem precisar ficar correndo atrás do inquilino.</p>
+          <p><strong>Receber seu aluguel</strong> sem precisar ficar correndo atrás do inquilino.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
-          <h4>Proteger seu imóvel de prejuízos</h4>
-          <p>Danos e despesas inesperadas.</p>
+          <p><strong>Proteger seu imóvel de prejuízos</strong>, como danos e despesas inesperadas.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-file-contract"></i></div>
-          <h4>Alugar seu imóvel sem medo</h4>
-          <p>De colocar a pessoa errada lá dentro.</p>
+          <p><strong>Alugar seu imóvel sem medo</strong> de colocar a pessoa errada lá dentro.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-camera"></i></div>
-          <h4>Parar de perder dinheiro</h4>
-          <p>Com erros que podem consumir meses de aluguel.</p>
+          <p><strong>Parar de perder dinheiro</strong> com erros que podem consumir meses de aluguel.</p>
         </div>
 
         <div class="b4-benefit-card">
           <div class="b4-icon-circle"><i class="fa-solid fa-building"></i></div>
-          <h4>Ter tranquilidade para aproveitar sua renda</h4>
-          <p>Sem viver preocupado com o imóvel.</p>
+          <p><strong>Ter tranquilidade para aproveitar sua renda</strong> sem viver preocupado com o imóvel.</p>
         </div>
 
       </div>
@@ -1897,94 +1965,68 @@
 
       <div class="b5-deliverables-container">
         
-        <!-- Entregável 1: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>O que conferir Antes de Entregar as Chaves</h3>
-            <p>
-              Nunca mais fique perdido na hora de entregar as chaves! Tenha em mãos um protocolo prático com os cuidados indispensáveis, documentos e conferências que precisam estar em ordem antes de colocar um inquilino no seu imóvel.
-            </p>
-          </div>
-          <div class="b5-mockup-box">
-            <img src="assets/entregaveis/roteiro-chaves.png" alt="Roteiro da Entrega das Chaves">
+            <p class="b5-card-topic">Tudo mastigadinho</p>
+            <h3>Cartilha dos Direitos e Deveres do Proprietário e do Inquilino — Entenda quem paga o quê no aluguel</h3>
+            <p>Saiba quais são as obrigações de cada um e o que você pode exigir dentro da lei. Evite discussões e saiba como proteger seus direitos sem assumir despesas indevidas.</p>
           </div>
         </div>
 
-        <!-- Entregável 2: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-2">
           <div class="b5-card-info">
-            <h3>Acesso Imediato à Biblioteca do Raio-X da Locação — 21 Perguntas Essenciais</h3>
-            <p>
-              Acesso imediato das 21 perguntas essenciais que todo proprietário deveria fazer antes de alugar seu imóvel. Identifique riscos escondidos, saiba o que exigir e descubra o que sua imobiliária precisa esclarecer antes de fechar o negócio.
-            </p>
-          </div>
-          <div class="b5-mockup-box">
-            <img src="assets/entregaveis/raio-x-locacao.png" alt="Raio-X da Locação Segura">
+            <p class="b5-card-topic">100% personalizável</p>
+            <h3>Modelo Profissional de Contrato de Aluguel Pronto para Usar</h3>
+            <p>Receba um modelo de contrato pronto para preencher e adaptar ao seu imóvel, com condições essenciais para proteger seus direitos, deixar claras as responsabilidades de cada um e reduzir problemas com pagamentos, multas e devolução do imóvel.</p>
           </div>
         </div>
 
-        <!-- Entregável 3: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-3">
           <div class="b5-card-info">
-            <h3>Inquilino Certo</h3>
-            <p>
-              Você vai aprender exatamente como avaliar um futuro inquilino antes de entregar seu patrimônio nas mãos dele. Descubra o que analisar além da renda, quais sinais de alerta observar e como identificar riscos que podem se transformar em meses de inadimplência e prejuízo.
-            </p>
+            <p class="b5-card-topic">Não esqueça nenhum detalhe.</p>
+            <h3>O Que Conferir Antes de Entregar as Chaves</h3>
+            <p>Tenha em mãos um roteiro prático com tudo o que precisa conferir antes de entregar seu imóvel ao inquilino. Saiba quais documentos, informações e cuidados não podem ficar de fora para começar a locação com mais segurança.</p>
           </div>
           <div class="b5-mockup-box">
-            <img src="assets/entregaveis/inquilino-certo.png" alt="Inquilino Certo">
+            <img src="assets/entregaveis/roteiro-chaves.png" alt="O Que Conferir Antes de Entregar as Chaves">
           </div>
         </div>
 
-        <!-- Entregável 4: Imagem à esquerda, Texto à direita -->
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>Mapa das Garantias Locatícias</h3>
-            <p>
-              Pare de escolher garantias no escuro! Compare fiador, caução, seguro-fiança e outras modalidades. Entenda as vantagens e limitações de cada uma para proteger melhor sua renda em caso de inadimplência.
-            </p>
+            <p class="b5-card-topic">Escolha com mais segurança</p>
+            <h3>Como Escolher a Garantia do Aluguel: Caução, Fiador, Seguro-Fiança ou Título de Capitalização?</h3>
+            <p>Entenda as diferenças, o que cada opção pode cobrir e quais cuidados tomar para escolher com mais segurança e reduzir o risco de prejuízo se o inquilino não pagar.</p>
           </div>
           <div class="b5-mockup-box">
-            <img src="assets/entregaveis/mapa-garantias.png" alt="Mapa das Garantias Locatícias">
+            <img src="assets/entregaveis/mapa-garantias.png" alt="Como Escolher a Garantia do Aluguel: Caução, Fiador, Seguro-Fiança ou Título de Capitalização?">
           </div>
         </div>
 
-        <!-- Entregável 5: Texto à esquerda, Imagem à direita -->
         <div class="b5-deliverable-card reveal delay-2">
           <div class="b5-card-info">
-            <h3>TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado</h3>
-            <p>
-              Conheça as TOP 10 cláusulas que não podem faltar no seu contrato de locação! Descubra os pontos essenciais para proteger seus direitos, evitar prejuízos e reduzir conflitos com danos ao imóvel, multas e desocupação antecipada.
-            </p>
-          </div>
-          <div class="b5-mockup-box">
-            <img src="assets/entregaveis/top10-clausulas.png" alt="TOP 10 Cláusulas Essenciais do Contrato de Locação Blindado">
-          </div>
-        </div>
-
-        <!-- Entregável 6: Imagem à esquerda, Texto à direita -->
-        <div class="b5-deliverable-card reveal delay-3">
-          <div class="b5-card-info">
-            <h3>Como Realizar o Checklist da Vistoria Segura</h3>
-            <p>
-              Aprenda exatamente como realizar uma vistoria completa e segura do seu imóvel! Descubra o que conferir, fotografar e documentar na entrada e na saída do inquilino, evitando falhas que podem gerar discussões e prejuízos ao seu patrimônio.
-            </p>
+            <p class="b5-card-topic">Rota garantida</p>
+            <h3>Checklist da Vistoria Segura</h3>
+            <p>Saiba o que conferir, fotografar e registrar na entrada e na saída do inquilino. Um checklist prático para documentar as condições do imóvel, evitar esquecimentos e reduzir discussões sobre danos e reparos.</p>
           </div>
           <div class="b5-mockup-box">
             <img src="assets/entregaveis/checklist-vistoria.png" alt="Checklist da Vistoria Segura">
           </div>
         </div>
 
-        <!-- Entregável 7: Texto à esquerda, Imagem à direita -->
+        <div class="b5-deliverable-card reveal delay-3">
+          <div class="b5-card-info">
+            <p class="b5-card-topic">Saiba como agir</p>
+            <h3>Passo a Passo para Cobrar o Aluguel Atrasado</h3>
+            <p>Saiba como agir quando o inquilino não paga em dia. Aprenda a registrar atrasos, fazer cobranças adequadas e tomar as providências necessárias para evitar que a dívida aumente sem controle.</p>
+          </div>
+        </div>
+
         <div class="b5-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>Manual do Aluguel Seguro</h3>
-            <p>
-              Tenha em mãos um verdadeiro guia para proteger seu patrimônio! Um passo a passo simples e organizado, da escolha do inquilino à devolução das chaves, para acompanhar sua locação com confiança, mesmo sem entender nada de aluguel.
-            </p>
-          </div>
-          <div class="b5-mockup-box">
-            <img src="assets/entregaveis/manual-aluguel-seguro.png" alt="Manual do Aluguel Seguro">
+            <p class="b5-card-topic">Menos gasto, menos dor de cabeça</p>
+            <h3>Como Evitar Prejuízos com Reparos e Manutenção no Imóvel</h3>
+            <p>Receba um roteiro prático para lidar com vazamentos, infiltrações e consertos durante o aluguel. Saiba o que verificar antes de autorizar serviços, como registrar problemas e evitar gastos desnecessários.</p>
           </div>
         </div>
 
@@ -1997,16 +2039,18 @@
        BLOCO 6 - BÔNUS (AZUL MARINHO)
        ======================================================== -->
 <section class="section-block-6 section-navy">
-    <div class="container">
-      
+    <div class="b6-heading">
       <p class="b6-pre-title reveal">Ainda não acabou...</p>
       <h2 class="b6-main-title reveal">Você também vai receber:</h2>
+    </div>
 
+    <div class="container">
       <div class="b5-deliverables-container">
         
         <div class="b6-deliverable-card reveal delay-1">
           <div class="b5-card-info">
-            <h3>O Passo a Passo da Ficha Inteligente de Análise do Inquilino</h3>
+            <p class="b5-card-topic">Mais segurança na escolha</p>
+            <h3>Bônus — Ficha Inteligente de Análise do Inquilino</h3>
             <p>
               Uma ficha preenchível indispensável para organizar informações do candidato, conferir documentos, registrar referências e sinalizar pontos de atenção antes de aprovar a locação.
             </p>
@@ -2093,7 +2137,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Roteiro da Entrega das Chaves</span>
+            <span>Cartilha de Direitos e Deveres</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 57,00</span></div>
         </div>
@@ -2101,7 +2145,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Raio-X da Locação</span>
+            <span>Modelo de Contrato de Aluguel</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 47,00</span></div>
         </div>
@@ -2109,7 +2153,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Inquilino Certo</span>
+            <span>Roteiro de Entrega das Chaves</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 47,00</span></div>
         </div>
@@ -2117,7 +2161,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Mapa das Garantias Locatícias</span>
+            <span>Guia de Garantias do Aluguel</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 37,00</span></div>
         </div>
@@ -2125,7 +2169,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>TOP 10 Cláusulas do Contrato</span>
+            <span>Checklist da Vistoria</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 57,00</span></div>
         </div>
@@ -2133,7 +2177,7 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Checklist da Vistoria Segura</span>
+            <span>Cobrança de Aluguel Atrasado</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 37,00</span></div>
         </div>
@@ -2141,9 +2185,16 @@
         <div class="b8-item-row">
           <div class="item-left">
             <i class="fa-solid fa-circle-check"></i>
-            <span>Manual do Aluguel Seguro</span>
+            <span>Reparos e Manutenção</span>
           </div>
           <div class="item-price"><span class="price-old-wrap"><span class="strike-line"></span>R$ 73,00</span></div>
+        </div>
+        <div class="b8-item-row">
+          <div class="item-left">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Bônus — Ficha de Análise do Inquilino</span>
+          </div>
+          <span class="b8-free-label">Gratuito</span>
         </div>
       </div>
 
@@ -2165,12 +2216,11 @@
        BLOCO 9 - VALOR (BRANCO)
        ======================================================== -->
 <section class="section-block-offer section-white" id="oferta-bloco9">
-    <div class="container">
-      
-      <p class="offer-attention-lead reveal">
-        Mas hoje você tem acesso ao <strong>O Segredo do Aluguel Seguro</strong> junto com o bônus por apenas:
-      </p>
+    <p class="offer-attention-lead reveal">
+      Mas hoje você tem acesso ao <strong>O Segredo do Aluguel Seguro</strong> junto com o <strong>bônus</strong> por apenas:
+    </p>
 
+    <div class="container">
       <div class="offer-box-layout reveal-scale">
         
         <div class="offer-mockup-left">
@@ -2178,13 +2228,9 @@
         </div>
 
         <div class="offer-pricing-right">
-          <div class="offer-mini-logo-box">
-            <img src="assets/logo-dourado-casa-aluguel-seguro.png?v=1" alt="O Segredo do Aluguel Seguro">
-          </div>
-
-          <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
-          <div class="offer-main-price">12x de R$ 9,97</div>
-          <p class="offer-cash-price">ou R$ 97,00 à vista</p>
+          <p class="offer-price-lead">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
+          <div class="offer-main-price">R$ 67,00 à vista</div>
+          <p class="offer-cash-price">ou 9x de R$ 8,80</p>
 
           <a href="#" class="btn-buy-now">
             <span>QUERO MEU ALUGUEL SEGURO</span>
@@ -2335,22 +2381,27 @@
       <div class="b12-options-wrap">
         
         <div class="b12-option-card is-risk reveal delay-1">
-          <span class="b12-option-tag"><i class="fa-solid fa-xmark"></i> Opção 1</span>
+          <div class="b12-option-label">
+            <span class="b12-option-emoji" aria-hidden="true">🫩</span>
+            <span class="b12-option-tag">Opção 1</span>
+          </div>
           <h3>Continuar alugando seu imóvel sem o método seguro.</h3>
           <p>Correr o risco de inadimplência, ter problemas na vistoria e na devolução e gastar tempo e dinheiro com imprevistos.</p>
         </div>
 
         <div class="b12-option-card is-recommended reveal delay-2">
-          <span class="b12-option-tag"><i class="fa-solid fa-circle-check"></i> Opção 2</span>
+          <div class="b12-option-label">
+            <span class="b12-option-emoji" aria-hidden="true">✅</span>
+            <span class="b12-option-tag">Opção 2</span>
+          </div>
           <h3>Adquirir agora O Segredo do Aluguel Seguro</h3>
-          <p><strong class="b12-price-highlight">Investir apenas R$ 97,00</strong> e finalmente blindar suas próximas locações, com mais segurança, tranquilidade e sem imprevistos.</p>
+          <p><strong class="b12-price-highlight">Investir apenas R$ 67,00 à vista</strong> e finalmente blindar suas próximas locações, com mais segurança, tranquilidade e sem imprevistos.</p>
         </div>
 
       </div>
 
       <div class="b12-statements reveal">
-        <p class="b12-lead">Eu sei, e você também sabe... <strong class="b12-gold-text">A opção 2 é a mais inteligente e é a que você mais precisa.</strong></p>
-        <p class="b12-action-text"><strong class="b12-gold-text">A opção 2 é a mais inteligente e é a que você mais precisa,</strong> então toque no botão abaixo e garanta seu acesso agora!</p>
+        <p class="b12-action-text">Eu sei, e você também sabe... <strong class="b12-gold-text">A opção 2 é a mais inteligente e é a que você mais precisa,</strong> então toque no botão abaixo e garanta seu acesso agora!</p>
       </div>
 
     </div>
@@ -2369,13 +2420,9 @@
         </div>
 
         <div class="offer-pricing-right">
-          <div class="offer-mini-logo-box">
-            <img src="assets/logo-dourado-casa-aluguel-seguro.png?v=1" alt="O Segredo do Aluguel Seguro">
-          </div>
-
-          <p class="offer-price-lead" style="color: #94a3b8; font-size: 1.05rem;">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
-          <div class="offer-main-price">12x de R$ 9,97</div>
-          <p class="offer-cash-price">ou R$ 97,00 à vista</p>
+          <p class="offer-price-lead">De <span class="price-old-wrap"><span class="strike-line"></span>R$ 355,00</span> por apenas:</p>
+          <div class="offer-main-price">R$ 67,00 à vista</div>
+          <p class="offer-cash-price">ou 9x de R$ 8,80</p>
 
           <a href="#" class="btn-buy-now">
             <span>QUERO MEU ALUGUEL SEGURO</span>
